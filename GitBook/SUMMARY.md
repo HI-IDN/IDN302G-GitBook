@@ -6,7 +6,7 @@
 
 * [Inngangur](sql/introduction.md)
 * [Gagnagrunnar](sql/databases.md)
-* [Fræði](sql/theory.md) 
+* [Venslagagnasöfn](sql/relationaldb.md) 
 * [Quickstart](sql/quickstart.md)
 * [SQLite](sql/sqlite.md)
 

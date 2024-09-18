@@ -53,10 +53,10 @@ Kennari námskeiðins er Helga Ingimundardóttir.
       </tr>
       <tr>
         <td><strong>SQL</strong></td>
-        <td>Fræði</td>
+        <td>Venslagagnasöfn</td>
         <td><a href=".gitbook/assets/3.png">3.png</a></td>
         <td></td>
-        <td><a href="sql/theory.md">theory.md</a></td>
+        <td><a href="sql/relationaldb.md">theory.md</a></td>
       </tr>
       <tr>
         <td><strong>SQL</strong></td>
