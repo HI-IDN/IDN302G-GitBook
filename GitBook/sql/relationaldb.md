@@ -28,19 +28,19 @@ nemendur í upplýsingaverkfræði eða allir nemendur Háskóla Íslands. Mengi
 og hlutir í mengi eru kallaðir stök. Vensl segja okkur til um samband staka milli mengja, eins og
 mengi starfsmanna og mengi launa eða einstaklingar og ættingjar.
 
-Tvístæð vensl frá $A$ til $B$ er mengið $R$ af röðuðum pörum þar sem fyrsta stakið af hverju röðuðu
-pari kemur frá $A$ og það síðara frá $B$. Þegar $(a,b)$ tilheyrir $R$ þá er $a$ sagt vera með vensl
-í $b$ með $R$ (skrifað $aRb$).
+Tvístæð vensl frá $$A$$ til $$B$$ er mengið $$R$$ af röðuðum pörum þar sem fyrsta stakið af hverju röðuðu
+pari kemur frá $$A$$ og það síðara frá $$B$$. Þegar $$(a,b)$$ tilheyrir $$R$$ þá er $$a$$ sagt vera með vensl
+í $$b$$ með $$R$$ (skrifað $$aRb$$).
 
-Dæmi um tvístæð vensl $R$ frá mengi $A$ til $B$: $A = \{0,1,2\}$, $B = \{a, b\} $. Tvístæð
-vensl væru þá t.d. $R: \{(0, a), (0, b), (1, a), (2, b)\}$. Athugið, við þurfum ekki að hafa öll pör
+Dæmi um tvístæð vensl $$R$$ frá mengi $$A$$ til $$B$$: $$A = \{0,1,2\}$$, $$B = \{a, b\} $$. Tvístæð
+vensl væru þá t.d. $$R: \{(0, a), (0, b), (1, a), (2, b)\}$$. Athugið, við þurfum ekki að hafa öll pör
 af tengingum milli mengja.
 
 Töflur eru oft notaðar til að sýna vensl. Dálkur er mengið sjálft, og hver lína í dálki er stak.
 Tvístæð vensl hafa tvo dálka.
 
-Þá væri til dæmis tvístæðu venslin: $\{$(Helga, Upplýsingaverkfræði), (Rögnvaldur, Tæknileg
-kerfi), (Tómas, Aðgerðagreining)$\}$ hægt að setja fram sem:
+Þá væri til dæmis tvístæðu venslin: $$\{$$(Helga, Upplýsingaverkfræði), (Rögnvaldur, Tæknileg
+kerfi), (Tómas, Aðgerðagreining)$$\}$$ hægt að setja fram sem:
 
 | Kennari    | Námskeið            |
 |------------|---------------------|
