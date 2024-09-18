@@ -578,9 +578,9 @@ afritun og flutning gagnagrunns.
 Þessi æfing hjálpar ykkur að skilja hvernig á að flytja inn og út gögn í SQLite, og hvernig á að
 vinna með gögnin til að sía þau og skoða í öðrum forritum.
 
-* Náið í skránna `lung_cancer_number_of_male_deaths` af Canvas.&#x20;
+* Náið í skránna [lung_cancer_number_of_male_deaths.csv](../../data/lung_cancer_number_of_male_deaths.csv).
 * Flytjið skránna inn í _SQLite_ með því að nota `.import` skipunina. Passið að stilla rétt
-  aðskilnaðartákn ef þörf krefur með `.separator` skipuninni.&#x20;
+  aðskilnaðartákn ef þörf krefur með `.separator` skipuninni.
 * Síðan síum við gögnin þannig að einungis gögn frá Króatíu og Íslandi eru valin.
 * Setjið innihald síuðu töflunnar í nýja CSV skrá.
 * Opnið CSV skránna, `filtered_data.csv`, og skoðið innihaldið, til dæmis með Excel eða öðru forriti

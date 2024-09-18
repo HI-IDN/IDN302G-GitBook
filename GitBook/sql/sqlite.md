@@ -49,8 +49,8 @@ _SQLite_ er oftast sjálfgefið uppsett á macOS og flestum Linux dreifingum, un
 _SQLite_ er notað í gegnum skipanaskel sem gerir notendum kleift að framkvæma SQL fyrirspurnir
 beint á gagnagrunnum.
 
-Sækið skránna `surgeries.db` af Canvas og keyrið í skel (e. _terminal_) úr sömu möppu og skráin er.
-Notið `cd` (stendur fyrir _change directory_) til að breyta um möppu.
+Sækið skránna [surgeries.db](../../data/surgeries.db) og keyrið í skel (e. _terminal_) úr sömu
+möppu og skráin er. Notið `cd` (stendur fyrir _change directory_) til að breyta um möppu.
 
 Keyrið skipunina `sqlite3` í skelinni. Opnið gagnasafnið með skipuninni `.open surgeries.db`. Prófið
 nokkrar skipanir sem finnast með `.help`.
