@@ -60,17 +60,17 @@ Kennari námskeiðins er Helga Ingimundardóttir.
       </tr>
       <tr>
         <td><strong>SQL</strong></td>
-        <td>Quickstart</td>
+        <td>SQLite</td>
         <td><a href=".gitbook/assets/4.png">4.png</a></td>
         <td></td>
-        <td><a href="sql/quickstart.md">quickstart.md</a></td>
+        <td><a href="sql/sqlite.md">sqlite.md</a></td>
       </tr>
       <tr>
         <td><strong>SQL</strong></td>
-        <td>SQLite</td>
+        <td>Quickstart</td>
         <td><a href=".gitbook/assets/5.png">5.png</a></td>
         <td></td>
-        <td><a href="sql/sqlite.md">sqlite.md</a></td>
+        <td><a href="sql/quickstart.md">quickstart.md</a></td>
       </tr>
     </tbody>
 </table>

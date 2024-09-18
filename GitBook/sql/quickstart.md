@@ -13,7 +13,7 @@ SQL var hannað af IBM í kringum 1970 og byggir á fræðilegu líkani um vensl
 fyrst tekið í notkun í tölvum um 1980 og er sérstaklega hannað til að vinna með gagnagrunna sem eru
 samsettir úr töflum.
 
-SQL inniheldur margar gerðir skipana, þar sem ein aðalskipunin er \texttt{SELECT}. Aðrar skipanir í
+SQL inniheldur margar gerðir skipana, þar sem ein aðalskipunin er `SELECT`. Aðrar skipanir í
 SQL vinna með töflur og gögn, til dæmis til að búa til, breyta og eyða töflum, setja inn, breyta og
 eyða gögnum, og breyta skipulagi gagnanna. SQL fyrirspurnir tilgreina hvaða gögn við viljum nálgast,
 en ekki hvernig þau eru fundin, sem gerir SQL mjög öflugt og sveigjanlegt.
@@ -39,7 +39,7 @@ Patient_1|101|10|M|40
 Patient_2|102|50|M|50 
 ```
 
-Við getum látið **SQLite** setja úttakið upp í dálka til að fá skýrari framsetningu með því að nota
+Við getum látið *SQLite* setja úttakið upp í dálka til að fá skýrari framsetningu með því að nota
 eftirfarandi skipanir:
 
 ```bash
