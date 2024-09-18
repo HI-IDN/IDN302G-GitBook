@@ -54,14 +54,14 @@ Kennari námskeiðins er Helga Ingimundardóttir.
       <tr>
         <td><strong>SQL</strong></td>
         <td>Venslagagnasöfn</td>
-        <td><a href=".gitbook/assets/3.png">3.png</a></td>
+        <td><a href=".gitbook/assets/relationaldb.png">relationaldb.png</a></td>
         <td></td>
         <td><a href="sql/relationaldb.md">theory.md</a></td>
       </tr>
       <tr>
         <td><strong>SQL</strong></td>
         <td>SQLite</td>
-        <td><a href=".gitbook/assets/4.png">4.png</a></td>
+        <td><a href=".gitbook/assets/sqlite.png">sqlite.png</a></td>
         <td></td>
         <td><a href="sql/sqlite.md">sqlite.md</a></td>
       </tr>
