@@ -41,7 +41,7 @@ Flest SQL fyrirspurnarmál fylgja svipuðum grunnatriðum og setningafræði. Þ
 framkvæma fyrirspurnir á gagnagrunnum á einfaldan hátt. Þrátt fyrir að smávægilegur munur geti verið
 til staðar milli mismunandi gagnagrunnskerfa, eins og _PostgreSQL_ og _SQLite_, eru grunnskipanirnar
 oft mjög keimlíkar og auðvelt að aðlaga sig á milli kerfa. Fyrir frekari upplýsingar um
-hvernig `SELECT` skipanir eru búnar til, sjá [Quickstart](sql/quickstart.md).
+hvernig `SELECT` skipanir eru búnar til, sjá [Quickstart](quickstart.md).
 
 Hér eru dæmi um grunnskipanir í SQL fyrir mismunandi gagnagrunnskerfi:
 
