@@ -37,26 +37,40 @@ Kennari námskeiðins er Helga Ingimundardóttir.
     </tr>
   </thead>
   <tbody>
-    <tr>
-      <td><strong>SQL</strong></td>
-      <td>Grunnatriði</td>
-      <td><a href=".gitbook/assets/1.png">1.png</a></td>
-      <td></td>
-      <td><a href="sql/quickstart.md">quickstart.md</a></td>
-    </tr>
-    <tr>
-      <td><strong>Basics</strong></td>
-      <td>Learn the basics of GitBook</td>
-      <td><a href=".gitbook/assets/2.png">2.png</a></td>
-      <td></td>
-      <td><a href="broken-reference">Broken link</a></td>
-    </tr>
-    <tr>
-      <td><strong>Publish your docs</strong></td>
-      <td>Share your docs online</td>
-      <td><a href=".gitbook/assets/3.png">3.png</a></td>
-      <td></td>
-      <td><a href="getting-started/publish-your-docs.md">publish-your-docs.md</a></td>
-    </tr>
-  </tbody>
+      <tr>
+        <td><strong>SQL</strong></td>
+        <td>Inngangur</td>
+        <td><a href=".gitbook/assets/1.png">1.png</a></td>
+        <td></td>
+        <td><a href="sql/introduction.md">introduction.md</a></td>
+      </tr>
+      <tr>
+        <td><strong>SQL</strong></td>
+        <td>Gagnagrunnar</td>
+        <td><a href=".gitbook/assets/2.png">2.png</a></td>
+        <td></td>
+        <td><a href="sql/databases.md">databases.md</a></td>
+      </tr>
+      <tr>
+        <td><strong>SQL</strong></td>
+        <td>Fræði</td>
+        <td><a href=".gitbook/assets/3.png">3.png</a></td>
+        <td></td>
+        <td><a href="sql/theory.md">theory.md</a></td>
+      </tr>
+      <tr>
+        <td><strong>SQL</strong></td>
+        <td>Quickstart</td>
+        <td><a href=".gitbook/assets/4.png">4.png</a></td>
+        <td></td>
+        <td><a href="sql/quickstart.md">quickstart.md</a></td>
+      </tr>
+      <tr>
+        <td><strong>SQL</strong></td>
+        <td>SQLite</td>
+        <td><a href=".gitbook/assets/5.png">5.png</a></td>
+        <td></td>
+        <td><a href="sql/sqlite.md">sqlite.md</a></td>
+      </tr>
+    </tbody>
 </table>

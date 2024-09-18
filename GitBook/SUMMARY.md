@@ -4,6 +4,9 @@
 
 ## SQL
 
+* [Inngangur](sql/introduction.md)
+* [Gagnagrunnar](sql/databases.md)
+* [Fræði](sql/theory.md) 
 * [Quickstart](sql/quickstart.md)
-* [SQLite](sql/sqlite3.md)
+* [SQLite](sql/sqlite.md)
 
