@@ -6,7 +6,7 @@ description: >-
 
 > *Athugið*: Hér koma sýnidæmi með SQL fyrirspurnum fyrir _SQLite_ gangagrunn. Nánar til tekið 
 > skráin [surgeries.db](../../data/surgeries.db) sem inniheldur töflur með upplýsingum um 
-> sjúklinga. Lesið (notkun á _SQLite_ skipanaskel)[database_interaction#notkun-a-skipanaskel] 
+> sjúklinga. Lesið [notkun á _SQLite_ skipanaskel](database_interaction#notkun-a-skipanaskel) 
 > snögglega til að sjá hvernig á að tengjast gagnagrunni og keyra fyrirspurnir.
 
 # SQL forsaga
