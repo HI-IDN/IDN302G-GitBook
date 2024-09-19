@@ -4,6 +4,11 @@ description: >-
   Einnig hvernig megi setja inn (`INSERT`), uppfæra (`UPDATE`) og eyða (`DELETE`) gögnum í töflum.
 ---
 
+> *Athugið*: Hér koma sýnidæmi með SQL fyrirspurnum fyrir _SQLite_ gangagrunn. Nánar til tekið 
+> skráin [surgeries.db](../../data/surgeries.db) sem inniheldur töflur með upplýsingum um 
+> sjúklinga. Lesið (notkun á _SQLite_ skipanaskel)[database_interaction#notkun-a-skipanaskel] 
+> snögglega til að sjá hvernig á að tengjast gagnagrunni og keyra fyrirspurnir.
+
 # SQL forsaga
 
 SQL var hannað af IBM í kringum 1970 og byggir á fræðilegu líkani um vensl með smá útvíkkun. SQL var
@@ -141,7 +146,7 @@ FROM Patient_list
 WHERE Patient_Sex <> 'M'; 
 ```
 
-## AND, OR og NOT skilyrði
+## `AND`, `OR` og `NOT` skilyrði
 
 Með `WHERE` skilyrðum er hægt að nota einn eða fleiri mengjavirka eins og `AND`, `OR`, og `NOT` til
 að sía gögn út frá fleiri en einu skilyrði:
@@ -191,7 +196,7 @@ SELECT 4 + 5 * 3   AS column1, -- Result is 19
 
 > **Athugið**, hér gáfum við útreiknaða dálkinum okkar ,,nafn'' með `AS`.
 
-# Reglulegar segðir með LIKE
+# Reglulegar segðir með `LIKE`
 
 `LIKE` skipunin er notuð til að leita að mynstri í strengjum með hjálp algildisstafa (e. wildcards).
 Algildisstafir eins og `%` og `_` leyfa okkur að framkvæma leitir með mynstrum í strengjum.
@@ -225,7 +230,7 @@ FROM tbl
 WHERE col LIKE '_X%Y'; 
 ```
 
-## REPLACE fallið
+## `REPLACE` fallið
 
 `REPLACE` fallið getur verið notað til að skipta út ákveðnum strengjum í gögnunum. Fallið tekur þrjú
 inntök: `REPLACE(strengur, samsvörun, skipta_út)`.
@@ -266,7 +271,7 @@ Til að setja inn gögn í töflur í SQL notum við `INSERT` skipunina. Það e
 nota `INSERT`: með því að tilgreina dálka sem við viljum setja gögn inn í, eða með því að setja inn
 gögn í alla dálka töflunnar ef öll gildi eru tilgreind.
 
-## Notkun INSERT með dálkalista
+## Notkun `INSERT` með dálkalista
 
 Þegar við viljum setja inn gögn í ákveðna dálka í töflunni, tilgreinum við dálkalistann
 í `INSERT INTO` skipuninni. Hér er dæmi:
@@ -277,7 +282,7 @@ INSERT INTO operators (opID, opName, opSSN, opAge, opYearInit)
 VALUES (1, 'Anna', '0101013010', 45, 2010); 
 ```
 
-## Notkun INSERT án dálkalista
+## Notkun `INSERT` án dálkalista
 
 Ef öll gildi eru skilgreind fyrir alla dálka í töflunni, getum við sleppt því að tilgreina
 dálkalistann og setja inn gögn beint. Þessi aðferð er aðeins nothæf ef gildi eru til staðar fyrir
