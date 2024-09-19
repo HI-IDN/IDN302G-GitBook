@@ -45,12 +45,13 @@ skilar `NULL` en ekki `0`.
 
 Rökaðgerðir eins og `AND`, `OR` og `NOT` skila `NULL` ef einhver þeirra er `NULL`. Til dæmis:
 
-Skilyrði 1 | Rökvirki | Skilyrði 2 | Niðurstaða
-Satt | AND | Óþekkt | Óþekkt
-Ósatt | AND | Óþekkt | Ósatt
-Satt | OR | Óþekkt | Satt
-Ósatt | OR | Óþekkt | Óþekkt
-| NOT | Óþekkt | Óþekkt
+| Skilyrði 1 | Rökvirki | Skilyrði 2 | Niðurstaða |
+|------------|----------|-------------|-------------|
+| Satt       | AND      | Óþekkt     | Óþekkt     |
+| Ósatt      | AND      | Óþekkt     | Ósatt      |
+| Satt       | OR       | Óþekkt     | Satt       |
+| Ósatt      | OR       | Óþekkt     | Óþekkt     |
+|            | NOT      | Óþekkt     | Óþekkt     |
 
 ## `NULL` í `SELECT` skipunum
 

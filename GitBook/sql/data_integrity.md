@@ -154,7 +154,6 @@ Til að skoða skorður í _SQLite_  töflu er hægt að nota `PRAGMA` skipunina
 
 ```sql
 PRAGMA table_info(kennarar);
-PRAGMA foreign_key_list(kennarar);
 ```
 
 Í _PostgreSQL_ er hægt að skoða skorður með `pg_constraint` töflunni. Dæmi:

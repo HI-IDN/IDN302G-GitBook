@@ -4,9 +4,9 @@ description: >-
   Einnig hvernig megi setja inn (`INSERT`), uppfæra (`UPDATE`) og eyða (`DELETE`) gögnum í töflum.
 ---
 
-> *Athugið*: Hér koma sýnidæmi með SQL fyrirspurnum fyrir _SQLite_ gangagrunn. Nánar til tekið 
-> skráin [surgeries.db](../../data/surgeries.db) sem inniheldur töflur með upplýsingum um 
-> sjúklinga. Lesið [notkun á _SQLite_ skipanaskel](database_interaction.md#notkun-á-skipanaskel) 
+> *Athugið*: Hér koma sýnidæmi með SQL fyrirspurnum fyrir _SQLite_ gangagrunn. Nánar til tekið
+> skráin [surgeries.db](../../data/surgeries.db) sem inniheldur töflur með upplýsingum um
+> sjúklinga. Lesið [notkun á _SQLite_ skipanaskel](database_interaction.md#notkun-á-skipanaskel)
 > til að sjá hvernig á að snögglega til að sjá hvernig á að tengjast gagnagrunni.
 
 # SQL forsaga
@@ -21,7 +21,7 @@ eyða gögnum, og breyta skipulagi gagnanna. SQL fyrirspurnir tilgreina hvaða g
 en ekki hvernig þau eru fundin, sem gerir SQL mjög öflugt og sveigjanlegt.
 
 > **Athugið:** Í SQL er almennt skrifað frátekin orð (t.d. `SELECT`, `FROM`, `WHERE`) í hástöfum,
-> en nöfn á töflum og dálkum (t.d. `employee`, `name`) með lágstöfum. Fyrir lengri skipanir er 
+> en nöfn á töflum og dálkum (t.d. `employee`, `name`) með lágstöfum. Fyrir lengri skipanir er
 > algengt að setja hvert frátekið orð á nýja línu til að auka læsileika.
 
 # SELECT skipun
@@ -56,10 +56,19 @@ eftirfarandi skipanir:
 .headers on 
 
 -- Show all tables in the database
-.tables <- til að sjá töflurnar sem eru í boði
+.tables
 
 -- exit the program
 .exit
+```
+
+Nú verður sama úttak auðlæsilegra:
+
+```
+Patient_Name  Patient_SSN  Patient_DaysOnWaitingList  Patient_Sex  Patient_Age
+------------  -----------  -------------------------  -----------  -----------
+Patient_1     101          10                         M            40
+Patient_2     102          50                         M            50
 ```
 
 Þessar stillingar munu skipuleggja úttakið í dálka og sýna nöfn dálkanna, sem gerir gögnin
@@ -98,7 +107,7 @@ takmarkað fjölda lína í úttakinu með `LIMIT` skipuninni. Hér er dæmi um 
 -- Select the top 3 rows, sorted by Age in descending order
 SELECT *
 FROM Patient_list
-ORDER BY Age DESC LIMIT 3; 
+ORDER BY Patient_Age DESC LIMIT 3; 
 ```
 
 Ef við viljum sleppa fyrstu línunum og velja næstu línur, getum við bætt við `OFFSET` skipuninni
@@ -108,7 +117,7 @@ Ef við viljum sleppa fyrstu línunum og velja næstu línur, getum við bætt v
 -- Skip the first 2 rows and select the next 3 
 SELECT *
 FROM Patient_list
-ORDER BY Age DESC LIMIT 3
+ORDER BY Patient_Age DESC LIMIT 3
 OFFSET 2; 
 ```
 
@@ -164,7 +173,13 @@ WHERE Patient_Age >= 40
   AND Patient_Age <= 60;
 ```
 
-Hér má einnig nota `BETWEEN` skilyrði sem jafngilt við `>= 40 AND <= 60`.
+Hér má einnig nota `BETWEEN` skilyrði sem jafngilt við `>= 40 AND <= 60`:
+
+```sql
+SELECT *
+FROM Patient_list
+WHERE Patient_Age BETWEEN 40 AND 60;
+```
 
 ## Útreikningar í skilyrðum
 
@@ -264,7 +279,6 @@ Hér eru nokkur lykilhugtök og tengingar við strjála stærðfræði:
 * **Yrðingar**: Veljum úttakið með yrðingu (`WHERE`skilyrði).
 * **Reglulegar segðir**: Yrðingar geta notað reglulegar segðir (`LIKE`) til að sía gögn.
 
-
 # Setja inn gögn í töflur með `INSERT`
 
 Til að setja inn gögn í töflur í SQL notum við `INSERT` skipunina. Það eru tvær aðalleiðir til að
@@ -310,7 +324,9 @@ Grunnformið fyrir `UPDATE` skipunina er:
 ```sql
 UPDATE table_name
 SET column1 = value1,
-    column2 = value2, ...WHERE condition;
+    column2 = value2, 
+    ...
+WHERE condition;
 ```
 
 Ef við viljum uppfæra aldur starfsmanns með tiltekið auðkenni (`opID`), gætum við notað eftirfarandi
@@ -333,8 +349,8 @@ Til að eyða gögnum úr töflum í SQL notum við `DELETE` skipunina. `DELETE`
 eina eða fleiri línur úr töflu byggt á skilyrðum sem við tilgreinum með `WHERE` skilyrði. Ef við
 viljum eyða töflunni algjörlega, þá getum við notað `DROP` skipunina.
 
-
 ## Eyða ákveðnum línum með `DELETE`
+
 Grunnformið fyrir `DELETE` skipunina er:
 
 ```sql
@@ -382,7 +398,7 @@ gagnagrunnum.
 
 ## Eyða töflu með `DROP`
 
-Ef þú vilt eyða töflunni sjálfri og öllum gögnum sem hún inniheldur, notum við `DROP TABLE` 
+Ef þú vilt eyða töflunni sjálfri og öllum gögnum sem hún inniheldur, notum við `DROP TABLE`
 skipunina:
 
 ```sql

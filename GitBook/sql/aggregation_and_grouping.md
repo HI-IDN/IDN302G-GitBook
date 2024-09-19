@@ -60,15 +60,15 @@ Oft viljum við telja línur í töflum. Notum til þess fallið `COUNT()`:
 
 - Til að telja allar línur í töflu:
   ```sql
-      SELECT COUNT(*) FROM Patient_list;
+  SELECT COUNT(*) FROM Patient_list;
   ```
 - Til að telja öll gildi í ákveðnum dálki:
   ```sql
-    SELECT COUNT(Patient_Age) FROM Patient_list;
+  SELECT COUNT(Patient_Age) FROM Patient_list;
   ```
 - Til að telja ólík gildi í dálki, notum við `DISTINCT()`:
   ```sql
-    SELECT COUNT(DISTINCT Patient_Age) FROM Patient_list;
+  SELECT COUNT(DISTINCT Patient_Age) FROM Patient_list;
   ```
 
 # Hópun gagna - `GROUP BY`
@@ -86,11 +86,16 @@ Til að finna meðaltal eftir hópi (t.d. aldur) eru tvær leiðir færar:
     ```
 2. Einfaldara er þó að nota hópa með `GROUP BY` og finna þannig meðaltal eftir aldurshópum:
     ```sql
-    SELECT Patient_Age, AVG(Patient_DaysOnWaitingList) AS Avg_Waiting_Time
+    SELECT Patient_Sex, AVG(Patient_DaysOnWaitingList) AS Avg_Waiting_Time
     FROM Patient_list
     GROUP BY Patient_Sex;
     ```
    Þessi leið er miklu skilvirkari og skiljanlegri.
+
+   > **Athugið:** Ef við veljum dálk sem er ekki í `GROUP BY` klausu, þá leyfa sum 
+   > gagnagrunnsmál ekki að keyra skipunina nema það sé með samsöfnunarfalli. Þetta er ekki 
+   > tilfellið í _SQLite_. Hér væri t.d. hægt að velja `Patient_Age` beint, en þá fáum við bara 
+   > *eitthvert* gildi fyrir þann hóp skilgreindan með `GROUP BY`.
 
 ## Reglur um hópun
 
@@ -132,9 +137,9 @@ Til að velja úr hópum, notum við `HAVING` eftir `GROUP BY` klausu. Þetta er
 er framkvæmt eftir hópun:
 
 ```sql
-SELECT Patient_Sex, AVG(Patient_DaysOnWaitingList) AS Avg_Waiting_Time
+SELECT Patient_Age, AVG(Patient_DaysOnWaitingList) AS Avg_Waiting_Time
 FROM Patient_list
-GROUP BY Patient_Sex
+GROUP BY Patient_Age
 HAVING COUNT(*) > 1;
 ```
 
