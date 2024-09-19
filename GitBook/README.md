@@ -72,5 +72,12 @@ Kennari námskeiðins er Helga Ingimundardóttir.
         <td></td>
         <td><a href="sql/quickstart.md">quickstart.md</a></td>
       </tr>
+      <tr>
+        <td><strong>SQL</strong></td>
+        <td>Ítarefni</td>
+        <td><a href=".gitbook/assets/5.png">5.png</a></td>
+        <td></td>
+        <td><a href="sql/learning-materials.md">learning-materials.md</a></td>
+      </tr>
     </tbody>
 </table>

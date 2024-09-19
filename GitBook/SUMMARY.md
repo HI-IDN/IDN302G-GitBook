@@ -9,4 +9,4 @@
 * [Venslagagnasöfn](sql/relationaldb.md)
 * [SQLite](sql/sqlite.md)
 * [Quickstart](sql/quickstart.md)
-
+* [Ítarefni](sql/learning-materials.md)
