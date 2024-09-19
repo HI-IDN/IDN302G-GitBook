@@ -28,7 +28,9 @@ sem mælt er með að nemendur skoði. Þetta efni er bæði gagnlegt til að l�
 - Mjög ítarlegar og tæknilegar upplýsingar um uppsetningu, stillingar, og notkun _PostgreSQL_.
 - Hentar vel þeim sem vilja sérhæfa sig í _PostgreSQL_ sem gagnagrunnskerfi.
 
-## 4. **Kennslubók:** *SQL in a Nutshell*
+## 4. **Kennslubók:** [*SQL in a
+
+Nutshell*](https://www.oreilly.com/library/view/sql-in-a/9781492088851/)
 
 - **Höfundar:** Kevin Kline, Regina O. Obe, Leo S. Hsu
 - **Útgefandi:** O'Reilly Media, Inc.
@@ -43,6 +45,41 @@ sem mælt er með að nemendur skoði. Þetta efni er bæði gagnlegt til að l�
 - Hentar bæði byrjendum og lengra komnum með ítarlegum dæmum.
 - Góð uppflettibók fyrir nemendur sem vilja skilja SQL í mismunandi gagnagrunnskerfum.
 
+# IDE fyrir gagnagrunnskerfi
+
+Til að auðvelda vinnu með gagnagrunan er gott að nota þróunarumhverfi (IDE) sem býður upp á
+sérstakar aðgerðir fyrir gagnagrunna. Hér eru þrjú tól sem mælt er með:
+
+### 1. [DataGrip](https://www.jetbrains.com/datagrip/)
+
+**Kostir:**
+
+- DataGrip er öflugt IDE frá _JetBrains_ sem styður marga gagnagrunnsþjónustu, þar á meðal
+  _PostgreSQL_.
+- Hægt er að tengja _GitHub CoPilot_ við DataGrip til að fá tillögur að SQL fyrirspurnum.
+- Nemandar geta sótt um frítt leyfi sem gildir í eitt ár í senn, á meðan þeir eru í námi.
+
+### 2. [DBeaver](https://dbeaver.io/)
+
+**Kostir:**
+
+- DBeaver er opinn hugbúnaður (e. _open source_) sem styður mörg gagnagrunnskerfi, þar á meðal
+  _PostgreSQL_.
+- Það býður upp á einfalt og aðgengilegt viðmót.
+- DBeaver er frítt og auðvelt í notkun, sem gerir það að frábærum valkost fyrir nemendur og
+  minni fyrirtæki.
+
+### 3. [Visual Studio Code (VSCode)](https://code.visualstudio.com/)
+
+**Kostir:**
+
+- VSCode er mjög aðgengilegt þróunarumhverfi sem styður marga viðbótarpakka fyrir vinnu með SQL,
+  eins og _PostgreSQL_.
+- Með því að nota VSCode geturðu unnið með kóða og SQL í sama umhverfi, sem sparar tíma og eykur
+  framleiðni.
+- VSCode er opinn hugbúnaður frá Microsoft og hentar vel fyrir þá sem vilja einfalt og öflugt IDE 
+  sem virkar m.a. fyrir gagnagrunnskerfi.
+ 
 # Gagnagrunnar með R
 
 [Gagnagrunnar og SQL í RStudio - R-bloggers](https://www.r-bloggers.com/2022/02/working-with-databases-and-sql-in-rstudio/)
@@ -110,7 +147,7 @@ data <- fetch(res, n = -1)
 dbDisconnect(con)
 ```
 
-## Gagnagrunnar í Python
+# Gagnagrunnar í Python
 
 ## SQLite með Python
 
