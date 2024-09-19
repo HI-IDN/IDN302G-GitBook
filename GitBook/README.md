@@ -43,41 +43,6 @@ Kennari námskeiðins er Helga Ingimundardóttir.
         <td><a href=".gitbook/assets/1.png">1.png</a></td>
         <td></td>
         <td><a href="sql/introduction.md">introduction.md</a></td>
-      </tr>
-      <tr>
-        <td><strong>SQL</strong></td>
-        <td>Gagnagrunnar</td>
-        <td><a href=".gitbook/assets/2.png">2.png</a></td>
-        <td></td>
-        <td><a href="sql/databases.md">databases.md</a></td>
-      </tr>
-      <tr>
-        <td><strong>SQL</strong></td>
-        <td>Venslagagnasöfn</td>
-        <td><a href=".gitbook/assets/relationaldb.png">relationaldb.png</a></td>
-        <td></td>
-        <td><a href="sql/relationaldb.md">theory.md</a></td>
-      </tr>
-      <tr>
-        <td><strong>SQL</strong></td>
-        <td>SQLite</td>
-        <td><a href=".gitbook/assets/sqlite.png">sqlite.png</a></td>
-        <td></td>
-        <td><a href="sql/sqlite.md">sqlite.md</a></td>
-      </tr>
-      <tr>
-        <td><strong>SQL</strong></td>
-        <td>Quickstart</td>
-        <td><a href=".gitbook/assets/5.png">5.png</a></td>
-        <td></td>
-        <td><a href="sql/quickstart.md">quickstart.md</a></td>
-      </tr>
-      <tr>
-        <td><strong>SQL</strong></td>
-        <td>Ítarefni</td>
-        <td><a href=".gitbook/assets/5.png">5.png</a></td>
-        <td></td>
-        <td><a href="sql/learning-materials.md">learning-materials.md</a></td>
-      </tr>
+      </tr>      
     </tbody>
 </table>

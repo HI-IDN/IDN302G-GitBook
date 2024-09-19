@@ -1,49 +1,106 @@
-# Ítarefni fyrir SQL nám
+---
+description: >-
+  Hægt er að eiga samskipti við gagnagrunnana með mismunandi tólum og tungumálum. Hægt er að 
+  nota bæði terminal tól og þróunarumhverfi (IDE) til að vinna með gagnagrunna, jafnvel hægt að 
+  vinna beint með gagnagrunna í forritunarmálum eins og Python og R.
+---
 
-Til að dýpka skilning á SQL og tengdum gagnagrunnstækni eru hér nokkur frábær öpp og kennslubækur
-sem mælt er með að nemendur skoði. Þetta efni er bæði gagnlegt til að læra grunnatriði og bæta við
-þekkingu í sérhæfðari þáttum.
+Í þessu námskeiði munum við styðjast við _SQLite_ í skel til að búa til gagnagrunn og framkvæma SQL
+skipanir. Í hluta námskeiðsins sem snýr að _PostgreSQL_ munum við fá gefinn aðgang að gagnagrunn sem
+hýstur er annars staðar. Þið munuð nota IDE til að tengjast þessum grunninum og framkvæma
+fyrirspurnir. Vinsamlegast athugið að þið hafið aðeins lesréttindi (e. _read access_) á _PostgreSQL_
+grunninum, en í _SQLite_ eruð þið með staðbundinn gagnagrunnur þar sem þið getið skrifað og
+lesið að vild.
 
-## 1. [W3Schools SQL kennsla](https://www.w3schools.com/sql/)
+# SQLite
 
-**Kostir:**
+_SQLite_ er létt gagnagrunnskerfi sem hentar vel fyrir minni verkefni þar sem einfaldleiki og hraði
+eru mikilvægir þættir. _SQLite_ er frjálst, auðvelt í uppsetningu og þarf ekki sérstaka
+gagnasafnsþjóna. Það er víða notað, meðal annars í vöfrum, símum og ýmsum forritum (sjá þekkt
+dæmi [hér](https://www.sqlite.org/famous.html)).
 
-- Einföld og aðgengileg útskýring á SQL, frá grunnatriðum til flóknari fyrirspurna.
-- Skýrar skref-fyrir-skref leiðbeiningar með dæmum sem nemendur geta fylgt og prófað.
-- Hentar mjög vel fyrir byrjendur.
+_SQLite_ var búið til af Richard Hipp í kringum 2000 þegar hann vann hjá General Dynamics í
+samstarfi við Bandaríkjaher. Hönnunarmarkmið var að þróa kerfi sem getur verið notað án þess að
+þurfa gagnasafnskerfi
+([sjá hér](https://thenewstack.io/the-origin-story-of-sqlite-the-worlds-most-widely-used-database-software/)).
 
-## 2. [SQLite skjölun](https://www.sqlite.org/docs.html)
+## Uppsetning
 
-**Kostir:**
+### Windows
 
-- Opinber skjölun fyrir _SQLite_, sem er mjög gagnlegt fyrir þá sem vinna með _SQLite_ gagnagrunna.
-- Ítarlegar upplýsingar um uppsetningu, notkun og þróun _SQLite_ gagnagrunna.
-- Frábært efni fyrir þá sem vilja kafa dýpra í notkun _SQLite_.
+Til að setja upp _SQLite_ á Windows:
 
-## 3. [PostgreSQL skjölun](https://www.postgresql.org/docs/current/)
+1. Farðu á [www.sqlite.com](https://www.sqlite.com).
+2. Sæktu og unzipaðu nýjustu útgáfu.
+3. Settu möppuna á rót disks (t.d. `C:\SQLite`).
+4. Bættu við slóðinni í _Environment Variables_ undir _system path_ (`PATH` breytan).
 
-**Kostir:**
+### Linux og macOS
 
-- Opinber skjölun fyrir _PostgreSQL_, sem er mikið notuð í fyrirtækjum og vefþjónustu.
-- Mjög ítarlegar og tæknilegar upplýsingar um uppsetningu, stillingar, og notkun _PostgreSQL_.
-- Hentar vel þeim sem vilja sérhæfa sig í _PostgreSQL_ sem gagnagrunnskerfi.
+_SQLite_ er oftast sjálfgefið uppsett á macOS og flestum Linux dreifingum, undir `sqlite3`.
 
-## 4. **Kennslubók:** [*SQL in a
+### Aðrar uppsetningaleiðir
 
-Nutshell*](https://www.oreilly.com/library/view/sql-in-a/9781492088851/)
+- **DB-Browser:** Ágætis tól til að halda utan um lítil venslagagnasöfn og byggir á
+  _SQLite_: [https://sqlitebrowser.org/](https://sqlitebrowser.org/)
+- **SQLiteOnline.com:** Hægt að æfa sig online hér og m.a. loada `.db` skrám. En notið þetta
+  einungis sem síðasta úrræði ef uppsetning gengur
+  ekki: [https://sqliteonline.com/](https://sqliteonline.com/)
+- **SQLite í R:** Hægt að nota R til að halda utan um gagnagrunninn og framkvæma fyrirspurnir. Hér
+  náið þið að slá tvær flugur í einu höggi með að gera skýrslugerð og gagnavinnslu í sama skjali.
 
-- **Höfundar:** Kevin Kline, Regina O. Obe, Leo S. Hsu
-- **Útgefandi:** O'Reilly Media, Inc.
-- **ISBN:** 9781492088868, 1492088862
-- **Útgáfuár:** 2022
-- **Útgáfa:** 4. útgáfa
+## Notkun á skipanaskel
 
-**Kostir:**
+_SQLite_ er notað í gegnum skipanaskel sem gerir notendum kleift að framkvæma SQL fyrirspurnir
+beint á gagnagrunnum.
 
-- Frábær handbók fyrir SQL þar sem farið er yfir SQL setningar og notkun á mismunandi
-  gagnagrunnskerfum (_PostgreSQL_, _Oracle_, _MySQL_, o.fl.).
-- Hentar bæði byrjendum og lengra komnum með ítarlegum dæmum.
-- Góð uppflettibók fyrir nemendur sem vilja skilja SQL í mismunandi gagnagrunnskerfum.
+Sækið skránna [surgeries.db](../../data/surgeries.db) og keyrið í skel (e. _terminal_) úr sömu
+möppu og skráin er. Notið `cd` (stendur fyrir _change directory_) til að breyta um möppu.
+
+Keyrið skipunina `sqlite3` í skelinni. Opnið gagnasafnið með skipuninni `.open surgeries.db`. Prófið
+nokkrar skipanir sem finnast með `.help`.
+
+```bash 
+-- Open the database
+.open surgeries.db
+
+-- List all tables
+.tables
+
+-- Show the structure of a table
+.schema table_name
+
+-- Display results in column mode
+.mode columns
+
+-- Enable headers in results
+.headers on
+```
+
+_SQLite_ er hannað til að vera einfalt og hratt, sem gerir það að góðu vali fyrir notendur sem þurfa
+ekki flóknari eiginleika stærri gagnagrunnskerfa eins og _PostgreSQL_ eða _MySQL_.
+
+# PostgreSQL
+
+_PostgreSQL_ er mjög öflugt og opið gagnagrunnskerfi sem hentar vel fyrir bæði smá og stór verkefni
+þar sem gagnasöfnun, samhliða vinnsla, og flókin fyrirspurnarefni eru mikilvæg. Það er byggt á
+SQL staðlinum og styður einnig fjölbreyttar útvíkkanir. _PostgreSQL_ er þekkt fyrir sveigjanleika
+sinn, öryggi, og mikla virkni, sem gerir það að vinsælu vali í mörgum forritum og þjónustum.
+
+Uppruni PostgreSQL má rekja til áranna 1986 á Berkeley háskólanum, og það hefur þróast í gegnum
+árin í samræmi við þarfir notenda, með áherslu á stuðning við flókin gögn og stærðfræðilega
+útreikninga.
+
+`psql` er skipunartól fyrir _PostgreSQL_ sem gerir notendum kleift að framkvæma SQL fyrirspurnir og
+stjórna gagnagrunnum í skel. Þetta tól býður upp á öfluga aðgerðir og skýrslur.
+
+Þar sem _PostgreSQL_ er hannað fyrir stærri verkefni og flóknari gagnasöfn, er það oftast notað
+í þróunarumhverfum (IDE) til að tengjast gagnagrunnum og framkvæma fyrirspurnir.
+
+### Uppsetning
+
+- [PostgreSQL niðurhal](https://www.postgresql.org/download/): Veldu réttan stýrikerfi og fylgdu
+  leiðbeiningunum fyrir að setja upp _PostgreSQL_ og _psql_.
 
 # IDE fyrir gagnagrunnskerfi
 
@@ -77,9 +134,9 @@ sérstakar aðgerðir fyrir gagnagrunna. Hér eru þrjú tól sem mælt er með:
   eins og _PostgreSQL_.
 - Með því að nota VSCode geturðu unnið með kóða og SQL í sama umhverfi, sem sparar tíma og eykur
   framleiðni.
-- VSCode er opinn hugbúnaður frá Microsoft og hentar vel fyrir þá sem vilja einfalt og öflugt IDE 
+- VSCode er opinn hugbúnaður frá Microsoft og hentar vel fyrir þá sem vilja einfalt og öflugt IDE
   sem virkar m.a. fyrir gagnagrunnskerfi.
- 
+
 # Gagnagrunnar með R
 
 [Gagnagrunnar og SQL í RStudio - R-bloggers](https://www.r-bloggers.com/2022/02/working-with-databases-and-sql-in-rstudio/)
