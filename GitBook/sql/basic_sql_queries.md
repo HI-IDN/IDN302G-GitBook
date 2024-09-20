@@ -1,7 +1,7 @@
 ---
 description: >-
-  Grunnskipanir í SQL eru í brennidepli, þar á meðal `SELECT`, `WHERE`, `AND`, `OR`, og `NOT`. 
-  Einnig hvernig megi setja inn (`INSERT`), uppfæra (`UPDATE`) og eyða (`DELETE`) gögnum í töflum.
+  Grunnskipanir í SQL eru í brennidepli, þar á meðal SELECT, WHERE, AND, OR, og NOT. 
+  Einnig hvernig megi setja inn (INSERT), uppfæra (UPDATE) og eyða (DELETE) gögnum í töflum.
 ---
 
 > *Athugið*: Hér koma sýnidæmi með SQL fyrirspurnum fyrir _SQLite_ gangagrunn. Nánar til tekið

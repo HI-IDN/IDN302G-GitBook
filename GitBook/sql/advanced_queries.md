@@ -1,7 +1,7 @@
 ---
 description: >-
-  Við kynnum flóknari SQL aðgerðir, þar á meðal tengingar (e. _joins_) og undirfyrirspurnir 
-  (_subqueries_) til að vinna með gögn á skilvirkari hátt. 
+  Við kynnum flóknari SQL aðgerðir, þar á meðal tengingar (e. joins) og undirfyrirspurnir 
+  (subqueries) til að vinna með gögn á skilvirkari hátt. 
 ---
 
 # Almennt form SELECT skipunar

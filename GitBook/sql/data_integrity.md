@@ -2,8 +2,8 @@
 description: >-
   Heilleiki gagna er undirstöðuatriði í gagnagrunnum og fyrir vikið eru settar skorður til að 
   tryggja rétt inntak. 
-  Hér er farið yfir mismunandi gerðir skorða, þar á meðal aðallykla (`PRIMARY KEY`), ytri lykla 
-  (`FOREIGN KEY`), einstaka skorður (`UNIQUE`), og skilyrðisskorður (`CHECK`).
+  Hér er farið yfir mismunandi gerðir skorða, þar á meðal aðallykla (PRIMARY KEY), ytri lykla 
+  (FOREIGN KEY), einstaka skorður (UNIQUE), og skilyrðisskorður (CHECK).
 ---
 
 # Heilleiki gagna og skorður

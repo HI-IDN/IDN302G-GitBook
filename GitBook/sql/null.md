@@ -1,8 +1,8 @@
 ---
 description: >-
-    Oft eru gildi í gagnagrunnum óskilgreind með `NULL`. Þessi gildi eru ekki tóm gildi, heldur 
-    segja þau til um að gildi vanti. Notkun á `NULL` getur valdið vandræðum í SQL fyrirspurnum. 
-    Hér verður farið yfir hvernig samanburður og rökaðgerðir virka á `NULL` gildum, og hvernig 
+    Oft eru gildi í gagnagrunnum óskilgreind með NULL. Þessi gildi eru ekki tóm gildi, heldur 
+    segja þau til um að gildi vanti. Notkun á NULL getur valdið vandræðum í SQL fyrirspurnum. 
+    Hér verður farið yfir hvernig samanburður og rökaðgerðir virka á NULL gildum, og hvernig 
     má fyrirbyggja að gildi séu `NULL` með skorðum.
 ---
 
