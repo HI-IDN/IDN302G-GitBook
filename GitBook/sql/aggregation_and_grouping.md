@@ -1,8 +1,8 @@
 ---
 description: >-
   Samsöfnun og hópun gagna með SQL, þar sem farið er yfir notkun á föllum eins og 
-  AVG(), COUNT() og GROUP BY til að framkvæma útreikninga á gögnum. Einnig er fjallað 
-  um hópun gagna, reglur um hópun, röðun og hvernig velja má úr hópum.
+  AVG, COUNT og GROUP BY til að framkvæma útreikninga á gögnum jafnvel eftir hópun gagna með eða 
+  án skilyrða.
 ---
 
 # Samsöfnun gagna

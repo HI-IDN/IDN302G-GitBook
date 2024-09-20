@@ -1,8 +1,7 @@
 ---
 description: >-
   Skipanaskrár halda utan um SQL skipanir svo hægt sé að endurkeyra þær án þess að skrifa þær 
-  aftur. Þær geta innihaldið SQL skipanir sem skilgreina töflur, setja inn gögn, sækja gögn og 
-  framkvæma aðgerðir á gagnagrunni. Tilvalið fyrir útgáfustýringu og endurkeyrslu.
+  aftur. Tilvalið fyrir útgáfustýringu og endurkeyrslu.
 ---
 
 Algengt er að búa til skrár sem innihalda SQL skipanir til að skilgreina og setja upp töflur.

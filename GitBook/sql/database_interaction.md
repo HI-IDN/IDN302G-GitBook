@@ -1,8 +1,7 @@
 ---
 description: >-
-  Hægt er að eiga samskipti við gagnagrunnana með mismunandi tólum og tungumálum. Hægt er að 
-  nota bæði terminal tól og þróunarumhverfi (IDE) til að vinna með gagnagrunna, jafnvel hægt að 
-  vinna beint með gagnagrunna í forritunarmálum eins og Python og R.
+  Hægt er að eiga samskipti við gagnagrunnana með mismunandi tólum og tungumálum, allt frá 
+  skipanatólum, þróunarumhverfum eða önnur forritunarmál.
 ---
 
 Í þessu námskeiði munum við styðjast við _SQLite_ í skel til að búa til gagnagrunn og framkvæma SQL

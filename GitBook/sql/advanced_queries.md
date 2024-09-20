@@ -1,6 +1,6 @@
 ---
 description: >-
-  Við kynnum flóknari SQL aðgerðir, þar á meðal tengingar (e. joins) og undirfyrirspurnir 
+  Við kynnum flóknari SQL aðgerðir, þar á meðal tengingar (joins) og undirfyrirspurnir 
   (subqueries) til að vinna með gögn á skilvirkari hátt. 
 ---
 

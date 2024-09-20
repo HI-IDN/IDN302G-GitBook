@@ -1,11 +1,11 @@
 ---
 description: >-
-  SQL (Structured Query Language) er forritunarmál hannað til að „tala við“ venslagagnasöfn. Það 
+  SQL er forritunarmál hannað til að „tala við“ venslagagnasöfn. Það 
   er mikilvægt tæki í gagnastjórnun sem gerir notendum kleift að framkvæma fyrirspurnir, búa til,
   breyta og eyða gögnum.
 ---
 
-# Inngangur
+# Um SQL 
 
 Markmið námskeiðsins er að kynnast fyrirspurnarmálinu SQL:
 
