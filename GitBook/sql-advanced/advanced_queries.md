@@ -1,6 +1,7 @@
 ---
 description: >-
-  Við kynnum flóknari SQL aðgerðir, þar á meðal tengingar (joins) og undirfyrirspurnir.
+  Við kynnum flóknari SQL aðgerðir, þar á meðal tengingar (joins) og flóknari undirfyrirspurnir 
+  svokallaðar CTE (Common Table Expression).
 ---
 
 # Flóknari SQL aðgerðir
@@ -26,8 +27,8 @@ hýstur á Railway og er aðgengilegur með eftirfarandi tengingarupplýsingum:
 > Tengiupplýsingar með notendanafni og lykilorð má finna á Canvas.
 
 Notið IDE til að tengjast PostgreSQL gagnagrunninum með þessum tengingarupplýsingum. Þið getið
-notað VSCode með viðbótinni PostgreSQL. Betra er að nota IDE sem sérhæfa sig fyrir SQL en þar er
-DataGrip í farabroddi (með frítt stúdentaleyfa) en DBeaver er líka góður kostur og er frjáls og
+notað _VSCode_ með viðbótinni _PostgreSQL_. Betra er að nota IDE sem sérhæfa sig fyrir SQL en þar er
+_DataGrip_ í farabroddi (með frítt stúdentaleyfa) en _DBeaver_ er líka góður kostur og er frjáls og
 opinn hugbúnaðar.
 
 Til að sjá hvaða töflur standa ykkur til boða getið þið keyrt eftirfarandi SQL fyrirspurn:
