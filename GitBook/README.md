@@ -42,7 +42,7 @@ Kennari námskeiðins er Helga Ingimundardóttir.
         <td>Inngangur</td>
         <td><a href=".gitbook/assets/1.png">1.png</a></td>
         <td></td>
-        <td><a href="sql/introduction.md">introduction.md</a></td>
+        <td><a href="sql-basics/introduction.md">introduction.md</a></td>
       </tr>      
     </tbody>
 </table>
