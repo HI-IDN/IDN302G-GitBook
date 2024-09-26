@@ -18,6 +18,7 @@
 
 ## SQL framhald 
 * [Flóknari SQL fyrirspurnir](sql-advanced/advanced_queries.md)
+* [PostgreSQL](sql-advanced/postgresql.md)
 * [Samsettar töflur](sql-advanced/joins.md)
 * [Sýndartöflur](sql-advanced/views.md)
 * [Föll í SQL](sql-advanced/functions.md)
