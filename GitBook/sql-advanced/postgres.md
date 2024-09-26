@@ -60,11 +60,26 @@ stafrófsröð.
 | The Vale        | {House Arryn of Gulltown, House Arryn of the Eyrie, House Baelish of the Fingers, House Belmore of Strongsong, House Borrell of Sweetsister}      |
 | The Westerlands | {House Algood, House Banefort of Banefort, House Bettley, House Brax of Hornvale, House Broom}                                                    |
 
-## Vinnsla með gagnatýpur: `RANGE`
+## Vinna með bil - `RANGE`
 
 _PostgreSQL_ býður upp á `RANGE` gagnatýpur sem gera okkur kleift að vinna með bil (t.d. aldur,
 tímabil). Þetta gefur möguleika á að finna skörun milli bita af gögnum, eins og t.d. hvaða
 karakterar voru uppi á sama tíma.
+
+Hér eru nokkur algeng notkunardæmi:
+- `daterange` gagnatýpan er notuð til að skilgreina dagsetningabil.
+- `tsrange` gagnatýpan er notuð til að skilgreina tímabil.
+- `int4range` gagnatýpan er notuð til að skilgreina heiltölubil.
+- `numrange` gagnatýpan er notuð til að skilgreina bili fyrir tölur.
+
+Á þeim getum við notað sérstaka virkja til að athuga hvort bili skeri eða innihaldi annan.
+- `@>`: Athugar hvort fyrri bilið innihaldi seinna bilið.
+- `<@`: Athugar hvort fyrri bilið sé innan seinna bilsins.
+- `&&`: Athugar hvort bilið skeri annað bili (*overlap*).
+- `=`: Athugar hvort bilið sé nákvæmlega eins og annað bili.
+- `<>`: Athugar hvort bilið sé ekki eins og annað bili.
+- `<<`: Athugar hvort fyrri bilið sé til vinstri um seinna bilið.
+- `>>`: Athugar hvort fyrri bilið sé til hægri um seinna bilið.
 
 Sjá [skjölun á PostgreSQL](https://www.postgresql.org/docs/current/rangetypes.html) fyrir
 frekari notkun.
