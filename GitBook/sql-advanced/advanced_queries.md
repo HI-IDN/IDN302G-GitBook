@@ -3,6 +3,7 @@ description: >-
   Við kynnum flóknari SQL aðgerðir, þar á meðal tengingar (joins) og undirfyrirspurnir.
 ---
 
+# Flóknari SQL aðgerðir
 
 Hingað til höfum við aðeins skoðað SQL fyrirspurnir sem vinna á einni töflu í einu, mögulega með
 einföldum undirfyrirspurnum. En hugmyndin með gagnagrunnum er að þeir eru að reyna að vera eins
@@ -11,10 +12,43 @@ staðir sem hægt er að nálgast sömu upplýsingar. Þetta tryggir heilleika g
 reyna að koma gagnagrunni á þriðja Boyce-Codd normal form (en það er utan efniviðar þessa
 námskeiðs).
 
-> Við notum dæmi um Postgres gagnagrunni úr Game of Thrones heiminum í sýnidæmum.
-> Tengiupplýsingar eru inn á Canvas.
+## PostgreSQL tenging
 
-# Almennt form SELECT skipunar
+Við notum dæmi um Postgres gagnagrunni úr Game of Thrones heiminum í sýnidæmum. Gagnagrunnurinn er
+hýstur á Railway og er aðgengilegur með eftirfarandi tengingarupplýsingum:
+
+- **Host:** `junction.proxy.rlwy.net`
+- **Port:** `55303`
+- **Database:** `railway`
+- **Username:** teymisnafn
+- **Password:** uppgefið í Canvas
+
+> Tengiupplýsingar með notendanafni og lykilorð má finna á Canvas.
+
+Notið IDE til að tengjast PostgreSQL gagnagrunninum með þessum tengingarupplýsingum. Þið getið
+notað VSCode með viðbótinni PostgreSQL. Betra er að nota IDE sem sérhæfa sig fyrir SQL en þar er
+DataGrip í farabroddi (með frítt stúdentaleyfa) en DBeaver er líka góður kostur og er frjáls og
+opinn hugbúnaðar.
+
+Til að sjá hvaða töflur standa ykkur til boða getið þið keyrt eftirfarandi SQL fyrirspurn:
+
+```sql
+SELECT *
+FROM pg_tables
+WHERE schemaname IN ('atlas', 'got')
+ORDER BY schemaname, tablename;
+```
+
+## Gögn
+
+Gögnin fyrir þennan kafla koma héðan:
+
+1. [**Ice and Fire API**](https://anapioficeandfire.com/) - Gögn frá skáldsöguheiminum *Game of
+   Thrones* (schema: `got`) sem hægt er að nálgast með API köllum á vefþjónustu eftir Joakim Skoog.
+2. **Game of Maps** - Gögn um kortlagningu og staðsetningar í heimi GoT (schema: `atlas`) eftir
+   Patrick Triest.
+
+# Almennt form `SELECT` skipunar
 
 ```sql
 SELECT <dálkar eða útreikningur>
@@ -26,3 +60,27 @@ ORDER BY <dálkar>
     LIMIT <tala>
 OFFSET <tala>;
 ```
+
+Útskýringar:
+
+- `SELECT`: Skilgreinir hvaða dálkar eða útreikningar verða valdir úr töflum.
+- `FROM`: Hér getur verið ein eða fleiri töflur. Ef fleiri en ein tafla er notuð, er það oftast
+  gert með tengingu (`JOIN`). Nánar verður farið í hvernig við tengjum saman töflur í
+  [hér](sql-advanced/joins.md).
+- `WHERE`: Skilyrði sem takmarkar niðurstöður. Það er einnig hægt að nota undirfyrirspurnir
+  í `WHERE` hlutnum. 
+
+## Undirfyrirspurnir
+
+Undirfyrirspurnir (e. subqueries) eru SQL fyrirspurnir sem keyrðar eru innan annars SQL
+fyrirspurnar.
+
+```sql 
+SELECT name, population
+FROM cities
+WHERE population > (SELECT AVG(population) FROM cities);
+```
+
+Í þessu dæmi finnur undirfyrirspurnin meðaltalsíbúafjölda (`AVG`) fyrir alla borgirnar í cities
+töflunni, og aðalfyrirspurnin skilar borgum með íbúafjölda yfir því meðaltali.
+
