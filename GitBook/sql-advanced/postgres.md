@@ -76,9 +76,7 @@ WHERE daterange('2012-01-01', NULL, '[]') @> released
 ORDER BY released DESC;
 ```
 
-Þessi fyrirspurn velur nöfn allra bóka úr gagnagrunninum þar sem útgáfudagsetningin fellur eftir
-
-2012.
+Þessi fyrirspurn velur nöfn allra bóka úr gagnagrunninum þar sem útgáfudagsetningin fellur eftir 2012.
 
 - Fyrirspurnin býr til dagsetningabil sem byrjar 1. janúar 2012 og hefur engan lokaendan, sem þýðir
   að hún tekur til allra dagsetninga eftir þennan tíma.
@@ -116,7 +114,8 @@ síðast, síðan raðað eftir nafni.
 
 - **`regexp_matches(born, '(\d+)\sAC\y', 'g')`**: Hér er verið að nota reglulega segðina til að
   finna tölur sem eru fyrir framan strenginn "AC" og það er notað **`\y`** til að tákna
-  orðamörk (word boundary) í _PostgreSQL_. Athugið að í _PostgreSQL_ er `\y` notað fyrir orðamörk en
+  orðamörk (word boundary) í _PostgreSQL_. 
+  > Athugið að í _PostgreSQL_ er `\y` notað fyrir orðamörk en
   ekki `\b`, sem er algengara í öðrum regex tólum.
 
 - **`ARRAY_AGG(match[1]::int)`**: Safnar öllum samsvörunum (tölustöfunum fyrir "AC") í fylki, en
@@ -178,7 +177,7 @@ fyrirspurn gefur okkur lista yfir öll gildi í sérsniðinni gagnatýpu.
 |-----------------------------------------|
 | {Castle,City,Landmark,Region,Ruin,Town} |
 
-Eins og sést að passar við skilgreininguna hér að ofan. Ef við viljum fá hvert gildi í
+Þetta stemmir við  skilgreininguna hér að ofan. Ef við viljum fá hvert gildi í
 sérniðinnni gagnatýpu fyrir sig, þá getum við notað `unnest` fallið á undan.
 
 ## Aðrar breytingar
