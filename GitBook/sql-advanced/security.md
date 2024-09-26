@@ -11,26 +11,26 @@ description: >-
 Að vista lykilorð, notendanöfn eða aðrar viðkvæmar upplýsingar í GitHub repo sem er opinber (public)
 er mjög alvarlegt öryggisbrot. Hér eru nokkrar ástæður fyrir því að það má aldrei gera þetta:
 
-## Opnar fyrir öryggisbrot:
+## Opnar fyrir öryggisbrot
 
 Ef lykilorð eða API lyklar eru vistuð í GitHub repo, getur hver sem er nálgast þær upplýsingar og
 misnotað þær. Þetta getur valdið því að óprúttnir aðilar fá aðgang að kerfum, gagnagrunnum, eða API
 þjónustum í þínu nafni.
 
-## Kostnaður:
+## Kostnaður
 
 Ef API lyklar eða greiðsluþjónustur eru birtar óvart í repo, getur einhver annar notað þá lykla til
 að framkvæma aðgerðir sem þú þarft svo að borga fyrir. Þetta getur valdið stórfelldum fjárhagslegum
 skaða þar sem þú þarft að borga fyrir notkun sem einhver annar framkvæmdi.
 
-## Öryggisbrestur og erfitt að laga:
+## Öryggisbrestur og erfitt að laga
 
 Þegar lykilorð eða lyklar eru vistaðir í GitHub sögunni, þá er ekki nóg að eyða bara skránni. Git
 history (útgáfusagan) heldur utan um allar breytingar, þar með talið fyrri útgáfur skrárinnar þar
 sem lykilorðin gætu enn verið til staðar. Að fjarlægja viðkvæmar upplýsingar úr sögu reposins er
 flókið og oft er einfaldara að eyða öllu repo-inu og byrja frá grunni.
 
-## Staða þín sem forritari:
+## Staða þín sem forritari
 
 Að setja viðkvæmar upplýsingar í opinbera repo getur skaðað orðspor þitt sem forritari og dregið úr
 trúverðugleika þínum hjá vinnuveitendum eða samstarfsaðilum. Það er talið alvarleg mistök að vista
