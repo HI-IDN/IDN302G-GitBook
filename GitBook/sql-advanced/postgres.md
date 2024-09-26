@@ -6,37 +6,59 @@ description: >-
 
 # Helstu munir á _PostgreSQL_ og _SQLite_
 
+Þó _SQLite_ sé einfaldur og hagnýtur gagnagrunnur fyrir minni verkefni, býður _PostgreSQL_ upp á
+marga möguleika sem henta flóknari verkefnum með þörf á sérhæfðari gagnatýpum, fyrirspurnum, og
+gagnavinnslu.
+
+Hér verða tekin nokkur gagnleg dæmi til að sýna helstu munina á _PostgreSQL_ og _SQLite_, en
+listinn er ekki tæmandi.
+
 ## `ARRAY_AGG` og fylki (arrays)
 
-Í _PostgreSQL_ er hægt að vinna með fylki og nota samantektaraðgerðir eins og `ARRAY_AGG` til að safna
+Í _PostgreSQL_ er hægt að vinna með fylki og nota samantektaraðgerðir eins og `ARRAY_AGG` til að
+safna
 saman gögnum í eitt fylki. Þetta býður upp á mun meiri sveigjanleika í að vinna með tengdar
 upplýsingar og hópa saman gögn.
 
-### Dæmi um `ARRAY_AGG`:
-
 ```sql
-SELECT region, ARRAY_AGG(name ORDER BY name) AS houses
-FROM got.houses
+SELECT region,
+       ARRAY(
+           SELECT name 
+           FROM got.houses AS h 
+           WHERE h.region = houses.region 
+           ORDER BY name 
+           LIMIT 5
+       ) AS houses
+FROM got.houses AS houses
 GROUP BY region
 ORDER BY region;
 ```
 
-Hér finnum við öll hús í GoT heiminum og hópum þau saman eftir svæðum.
+Fyrirspurnin skilar lista af svæðum með fylki af nöfnum fyrstu 5 húsanna á hverju svæði, raðað í
+stafrófsröð.
 
-| Region          | Houses                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                         |
-|-----------------|------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------|
-| Beyond the Wall | {House Redbeard}                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                               |
-| Dorne           | {House Allyrion of Godsgrace,House Blackmont of Blackmont,House Briar,House Brook,House Brownhill,House Dalt of Lemonwood,House Dayne of High Hermitage,House Dayne of Starfall,House Drinkwater,House Dryland,House Fowler of Skyreach,House Gargalen of Salt Shore,House Holt,House Hull,House Jordayne of the Tor,House Ladybright,House Lake,House Manwoody of Kingsgrave,House Nymeros Martell of Sunspear,House Qorgyle of Sandstone,House Santagar of Spottswood,House Shell,House Toland of Ghost Hill,House Uller of Hellholt,House Vaith of the Red Dunes,House Wade,House Wells,House Wyl of the Boneway,House Yronwood of Yronwood}                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                |
-| Iron Islands    | {House Blacktyde of Blacktyde,House Botley of Lordsport,House Codd,House Drumm of Old Wyk,House Farwynd of Sealskin Point,House Farwynd of the Lonely Light,House Goodbrother of Corpse Lake,House Goodbrother of Crow Spike Keep,House Goodbrother of Downdelving,House Goodbrother of Hammerhorn,House Goodbrother of Orkmont,House Goodbrother of Shatterstone,House Greyiron of Orkmont,House Greyjoy of Pyke,House Harlaw of Grey Garden,House Harlaw of Harlaw,House Harlaw of Harlaw Hall,House Harlaw of Harridan Hill,House Harlaw of the Tower of Glimmering,House Hoare of Orkmont,House Humble,House Ironmaker,House Kenning of Harlaw,House Merlyn of Pebbleton,House Myre of Harlaw,House Netley,House Orkwood of Orkmont,House Saltcliffe of Saltcliffe,House Sharp,House Shepherd,House Sparr of Great Wyk,House Stonehouse of Old Wyk,House Stonetree of Harlaw,House Sunderly of Saltcliffe,House Tawney of Orkmont,House Volmark,House Weaver,House Wynch of Iron Holt}                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                     |
-| The Crownlands  | {House Baratheon of Dragonstone,House Baratheon of King's Landing,House Bar Emmon of Sharp Point,House Blount,House Boggs of Crackclaw Point,House Brune of Brownhollow,House Brune of the Dyre Den,House Buckwell of the Antlers,House Byrch,House Bywater,House Cargyll,House Cave,House Celtigar of Claw Isle,House Chelsted,House Chyttering,House Crabb,House Cressey,House Dargood,House Darke,House Darklyn of Duskendale,House Darkwood,House Edgerton,House Farring,House Follard,House Gaunt,House Hardy,House Harte,House Hayford of Hayford,House Hogg of Sow's Horn,House Hollard,House Kettleblack,House Langward,House Longwaters,House Mallery,House Manning,House Massey of Stonedance,House Pyle,House Pyne,House Rambton,House Rollingford,House Rosby of Rosby,House Rykker of Duskendale,House Staunton of Rook's Rest,House Stokeworth of Stokeworth,House Sunglass of Sweetport Sound,House Targaryen of King's Landing,House Thorne,House Velaryon of Driftmark,House Wendwater}                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                       |
-| The Neck        | {House Blackmyre,House Cray,House Fenn,House Greengood,House Peat,House Quagg,House Reed of Greywater Watch}                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                   |
-| The North       | {House Amber,House Ashwood,House Boggs,House Bole,House Bolton of the Dreadfort,House Branch,House Branfield,House Burley,House Cassel,House Cerwyn of Cerwyn,House Condon,House Crowl of Deepdown,House Dustin of Barrowton,House Fisher of the Stony Shore,House Flint of Breakstone Hill,House Flint of Flint's Finger,House Flint of the mountains,House Flint of Widow's Watch,House Forrester,House Frost,House Glenmore,House Glover of Deepwood Motte,House Greenwood,House Greystark of Wolf's Den,House Harclay,House Holt,House Hornwood of Hornwood,House Ironsmith,House Karstark of Karhold,House Knott,House Lake,House Liddle,House Lightfoot,House Locke of Oldcastle,House Long,House Magnar of Kingshouse,House Manderly of White Harbor,House Marsh,House Mollen,House Mormont of Bear Island,House Moss,House Norrey,House Overton,House Poole,House Ryder of the Rills,House Ryswell of the Rills,House Slate of Blackpool,House Stane of Driftwood Hall,House Stark of Winterfell,House Stout of Goldgrass,House Tallhart of Torrhen's Square,House Thenn,House Towers,House Umber of the Last Hearth,House Waterman,House Wells,House Whitehill,House Woodfoot of Bear Island,House Woods,House Woolfield,House Wull}                                                                                                                                                                                                                                                                                                                                                  |
-| The Reach       | {House Ambrose,House Appleton of Appleton,House Ashford of Ashford,House Ball,House Beesbury of Honeyholt,House Blackbar of Bandallon,House Bridges,House Bulwer of Blackcrown,House Bushy,House Caswell of Bitterbridge,House Chester of Greenshield,House Cockshaw,House Conklyn,House Cordwayner of Hammerhal,House Costayne of Three Towers,House Crane of Red Lake,House Cuy of Sunhouse,House Dunn,House Durwell,House Florent of Brightwater Keep,House Footly of Tumbleton,House Fossoway of Cider Hall,House Fossoway of New Barrel,House Gardener of Highgarden,House Graceford of Holyhall,House Graves,House Grimm of Greyshield,House Hastwyck,House Hewett of Oakenshield,House Hightower of the Hightower,House Hunt,House Hutcheson,House Inchfield,House Kidwell of Ivy Hall,House Leygood,House Lowther,House Lyberr,House Meadows of Grassy Vale,House Merryweather of Longtable,House Middlebury,House Mullendore of Uplands,House Norcross,House Norridge,House Oakheart of Old Oak,House Oldflowers,House Orme,House Osgrey of Leafy Lake,House Osgrey of Standfast,House Peake of Starpike,House Pommingham,House Redding,House Redwyne of the Arbor,House Rhysling,House Risley,House Rowan of Goldengrove,House Roxton of the Ring,House Serry of Southshield,House Shermer of Smithyton,House Sloane,House Stackhouse,House Tarly of Horn Hill,House Tyrell of Brightwater Keep,House Tyrell of Highgarden,House Uffering,House Varner,House Vyrwel of Darkdell,House Webber of Coldmoat,House Westbrook,House Willum,House Woodwright,House Wythers,House Yelshire} |
-| The Riverlands  | {House Baelish of Harrenhal,House Bigglestone,House Blackwood of Raventree Hall,House Blanetree,House Bracken of Stone Hedge,House Butterwell,House Chambers,House Charlton,House Darry of Darry,House Deddings,House Erenford,House Fisher,House Frey of Riverrun,House Frey of the Crossing,House Goodbrook,House Grell,House Grey,House Haigh,House Harlton,House Harroway of Harrenhal,House Hawick of Saltpans,House Heddle,House Hook,House Justman,House Keath,House Lannister of Darry,House Lolliston,House Lothston of Harrenhal,House Lychester,House Mallister of Seagard,House Mooton of Maidenpool,House Mudd of Oldstones,House Nayland of Hag's Mire,House Nutt,House Paege,House Perryn,House Piper of Pinkmaiden,House Qoherys of Harrenhal,House Roote of Lord Harroway's Town,House Ryger of Willow Wood,House Shawney,House Slynt of Harrenhal,House Smallwood of Acorn Hall,House Strong of Harrenhal,House Teague,House Terrick,House Towers of Harrenhal,House Tully of Riverrun,House Vance of Atranta,House Vance of Wayfarer's Rest,House Wayn,House Whent of Harrenhal,House Wode}                                                                                                                                                                                                                                                                                                                                                                                                                                                                                 |
-| The Stormlands  | {House Baratheon of Storm's End,House Bolling,House Buckler of Bronzegate,House Cafferen of Fawnton,House Caron of Nightsong,House Cole,House Connington of Griffin's Roost,House Dondarrion of Blackhaven,House Durrandon,House Errol of Haystack Hall,House Estermont of Greenstone,House Fell of Felwood,House Foote of Nightsong,House Gower,House Grandison of Grandview,House Hasty,House Herston,House Horpe,House Kellington,House Lonmouth,House Mertyns of Mistwood,House Morrigen of Crow's Nest,House Musgood,House Peasebury of Poddingfield,House Penrose of Parchments,House Rogers of Amberly,House Seaworth of Cape Wrath,House Selmy of Harvest Hall,House Staedmon of Broad Arch,House Swann of Stonehelm,House Swygert,House Tarth of Evenfall Hall,House Toyne,House Trant of Gallowsgrey,House Tudbury,House Wagstaff,House Wensington,House Wylde of Rain House}                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                        |
-| The Vale        | {House Arryn of Gulltown,House Arryn of the Eyrie,House Baelish of the Fingers,House Belmore of Strongsong,House Borrell of Sweetsister,House Breakstone,House Brightstone,House Coldwater of Coldwater Burn,House Donniger,House Egen,House Elesham of the Paps,House Grafton of Gulltown,House Hardyng,House Hersy of Newkeep,House Hunter of Longbow Hall,House Lipps,House Longthorpe of Longsister,House Lynderly of the Snakewood,House Melcolm of Old Anchor,House Moore,House Pryor of Pebble,House Redfort of Redfort,House Royce of Runestone,House Royce of the Gates of the Moon,House Ruthermont,House Shell,House Shett of Gull Tower,House Shett of Gulltown,House Sunderland of the Three Sisters,House Tollett of the Grey Glen,House Torrent of Littlesister,House Upcliff,House Waxley of Wickenden,House Waynwood of Ironoaks,House Wydman}                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                |
-| The Westerlands | {House Algood,House Banefort of Banefort,House Bettley,House Brax of Hornvale,House Broom,House Casterly of Casterly Rock,House Clegane,House Clifton,House Crakehall of Crakehall,House Doggett,House Drox,House Estren of Wyndhall,House Falwell,House Farman of Faircastle,House Ferren,House Foote,House Garner,House Greenfield of Greenfield,House Hamell,House Hawthorne,House Hetherspoon,House Jast,House Kenning of Kayce,House Kyndall,House Lannett,House Lannister of Casterly Rock,House Lannister of Lannisport,House Lanny,House Lantell,House Lefford of the Golden Tooth,House Lorch,House Lydden of Deep Den,House Marbrand of Ashemark,House Moreland,House Myatt,House Parren,House Payne,House Peckledon,House Plumm,House Prester of Feastfires,House Reyne of Castamere,House Ruttiger,House Sarsfield of Sarsfield,House Sarwyck,House Serrett of Silverhill,House Spicer of Castamere,House Stackspear,House Swyft of Cornfield,House Tarbeck of Tarbeck Hall,House Turnberry,House Vikary,House Westerling of the Crag,House Westford,House Yarwyck,House Yew}                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                      |
-|                 | {House Blackfyre of King's Landing,House Corbray of Heart's Home,House Cox of Saltpans,House Strickland,House Templeton,House Vypren}                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                          |
+- **SELECT region**: Velur svæði úr `got.houses`.
+- **ARRAY(... AS houses)**: Innri fyrirspurn safnar fylki af húsanöfnum sem tilheyra hverju svæði,
+  raðað í stafrófsröð með takmörkun á 5 nöfnum.
+    - **WHERE h.region = houses.region**: Velur hús sem tilheyra sama svæði.
+    - **ORDER BY name**: Raðar húsum í stafrófsröð.
+    - **LIMIT 5**: Takmarkar niðurstöður við fyrstu 5 húsin.
+- **GROUP BY region**: Hópar niðurstöður eftir svæði.
+- **ORDER BY region**: Raðar niðurstöðum eftir svæðisnafni.
+
+| Region          | Houses                                                                                                                                            |
+|-----------------|---------------------------------------------------------------------------------------------------------------------------------------------------|
+| Beyond the Wall | {House Redbeard}                                                                                                                                  |
+| Dorne           | {House Allyrion of Godsgrace, House Blackmont of Blackmont, House Briar, House Brook, House Brownhill}                                            |
+| Iron Islands    | {House Blacktyde of Blacktyde, House Botley of Lordsport, House Codd, House Drumm of Old Wyk, House Farwynd of Sealskin Point}                    |
+| The Crownlands  | {House Baratheon of Dragonstone, House Baratheon of King's Landing, House Bar Emmon of Sharp Point, House Blount, House Boggs of Crackclaw Point} |
+| The Neck        | {House Blackmyre, House Cray, House Fenn, House Greengood, House Peat}                                                                            |
+| The North       | {House Amber, House Ashwood, House Boggs, House Bole, House Bolton of the Dreadfort}                                                              |
+| The Reach       | {House Ambrose, House Appleton of Appleton, House Ashford of Ashford, House Ball, House Beesbury of Honeyholt}                                    |
+| The Riverlands  | {House Baelish of Harrenhal, House Bigglestone, House Blackwood of Raventree Hall, House Blanetree, House Bracken of Stone Hedge}                 |
+| The Stormlands  | {House Baratheon of Storm's End, House Bolling, House Buckler of Bronzegate, House Cafferen of Fawnton, House Caron of Nightsong}                 |
+| The Vale        | {House Arryn of Gulltown, House Arryn of the Eyrie, House Baelish of the Fingers, House Belmore of Strongsong, House Borrell of Sweetsister}      |
+| The Westerlands | {House Algood, House Banefort of Banefort, House Bettley, House Brax of Hornvale, House Broom}                                                    |
 
 ## Vinnsla með gagnatýpur: `RANGE`
 
@@ -44,32 +66,73 @@ _PostgreSQL_ býður upp á `RANGE` gagnatýpur sem gera okkur kleift að vinna 
 tímabil). Þetta gefur möguleika á að finna skörun milli bita af gögnum, eins og t.d. hvaða
 karakterar voru uppi á sama tíma.
 
-Sjá [skjölun á PostgreSQL](https://www.postgresql.org/docs/current/rangetypes.html) fyrir 
+Sjá [skjölun á PostgreSQL](https://www.postgresql.org/docs/current/rangetypes.html) fyrir
 frekari notkun.
 
-### Dæmi: Finna alla karaktera sem voru uppi á sama tíma og Jon Snow:
-
 ``` sql 
-SELECT c.name
-FROM got.characters c
-WHERE daterange(c.birth, c.death, '[]')
-      && (SELECT daterange(birth, death, '[]') 
-          FROM got.characters 
-          WHERE name = 'Jon Snow');
+SELECT name book_after_2012, released
+FROM got.books
+WHERE daterange('2012-01-01', NULL, '[]') @> released
+ORDER BY released DESC;
 ```
 
-Þetta dæmi notar daterange til að búa til bil sem inniheldur fæðingu og dauða, og athugar hvort
-þetta bil skarast við bil _Jon Snow_.
+Þessi fyrirspurn velur nöfn allra bóka úr gagnagrunninum þar sem útgáfudagsetningin fellur eftir
 
-## Flóknar regex fyrirspurnir
+2012.
+
+- Fyrirspurnin býr til dagsetningabil sem byrjar 1. janúar 2012 og hefur engan lokaendan, sem þýðir
+  að hún tekur til allra dagsetninga eftir þennan tíma.
+- Hún athugar hvort útgáfudagsetningin bókarinnar falli innan þessa bils.
+- Að lokum raðast niðurstöðurnar í lækkandi röð eftir útgáfudagsetningu, þannig að nýjustu bækurnar
+  koma fyrst.
+
+| book_after_2012                | released   |
+|--------------------------------|------------|
+| A Knight of the Seven Kingdoms | 2015-10-06 |
+| The World of Ice and Fire      | 2014-10-28 |
+| The Rogue Prince               | 2014-06-17 |
+| The Princess and the Queen     | 2013-12-03 |
+
+## Flóknari regex fyrirspurnir
 
 Í _SQLite_ höfum við takmarkaða regex virkni með `LIKE`, en _PostgreSQL_ býður upp á fullkomna
 regex-aðgerðir með `regexp_match` og `regexp_matches`, sem gerir okkur kleift að nota flóknari
 og öflugri reglulegar segðir.
 
-Þetta dæmi finnur alla karaktera úr _Stark_-ætt sem byrja á bókstafnum A.
+```sql
+SELECT name,
+       born,
+       (SELECT ARRAY_AGG(match[1]::int)
+        FROM regexp_matches(born, '(\d+)\sAC\y', 'g') AS match) AS matches
+FROM got.characters
+WHERE name IN ('Bronn', 'Jon Snow', 'Melisandre', 'Otto Hightower')
+ORDER BY matches DESC NULLS LAST, name;
+```
 
-Sjá [skjölun á PostgreSQL](https://www.postgresql.org/docs/current/functions-matching.html) 
+Fyrirspurnin finnur fæðingarár sem enda með _AC_ (stendur fyrir _After Conquest_) fyrir tiltekna
+karaktera og safnar þeim saman í fylki fyrir hvern karakter. Niðurstöðurnar eru síðan raðaðar
+þannig að karakterar með samsvörun koma fyrst, og karakterar með engar samsvörunir (`NULL`) koma
+síðast, síðan raðað eftir nafni.
+
+- **`regexp_matches(born, '(\d+)\sAC\y', 'g')`**: Hér er verið að nota reglulega segðina til að
+  finna tölur sem eru fyrir framan strenginn "AC" og það er notað **`\y`** til að tákna
+  orðamörk (word boundary) í _PostgreSQL_. Athugið að í _PostgreSQL_ er `\y` notað fyrir orðamörk en
+  ekki `\b`, sem er algengara í öðrum regex tólum.
+
+- **`ARRAY_AGG(match[1]::int)`**: Safnar öllum samsvörunum (tölustöfunum fyrir "AC") í fylki, en
+  fyrst er gildinu breytt í heiltölu með `::int`.
+
+- **`ORDER BY matches DESC NULLS LAST, name`**: Fyrirspurnin raðar niðurstöðunum þannig að þeir sem
+  hafa samsvörun við "XXX AC" koma fyrst (í lækkandi röð) og aðrir (með `NULL`) koma síðast.
+
+| name           | born                            | matches    |
+|----------------|---------------------------------|------------|
+| Jon Snow       | In 283 AC                       | {283}      |
+| Bronn          | In or between 264 AC and 268 AC | {264, 268} |
+| Melisandre     | At Unknown                      |            |
+| Otto Hightower |                                 |            |
+
+Sjá [skjölun á PostgreSQL](https://www.postgresql.org/docs/current/functions-matching.html)
 fyrir frekari notkun.
 
 ## Sérsniðnar gagnatýpur - `ENUM`
@@ -78,7 +141,7 @@ _PostgreSQL_ býður upp á möguleikann að skilgreina sérsniðnar gagnatýpur
 vel til að takmarka gildin í dálkum. Til dæmis er hægt að búa til sérsniðna tegund fyrir
 staðsetningarflokka (_location types_) í _Game of Thrones_ gagnagrunni.
 
-Sjá [skjölun á PostgreSQL](https://www.postgresql.org/docs/current/datatype-enum.html) fyrir 
+Sjá [skjölun á PostgreSQL](https://www.postgresql.org/docs/current/datatype-enum.html) fyrir
 frekari notkun.
 
 ### Búa til sérsniðna gagnatýpu:
@@ -98,21 +161,31 @@ CREATE TABLE atlas.locations
 );
 ```
 
-### Finna alla mögulega gildi í sérsniðinni gagnatýpu:
+Kosturinn hér er að gagnagrunnskerfið getur núna passað upp á að eingöngu sé hægt að setja inn
+lögleg gildi í dálkinn `type`. Til dæmis mætti ekki setja inn gildið _Village_ eða _castle_ í
+dálkinn `type`.
+
+### Finna öll skilgreind gildi í sérsniðinni gagnatýpu:
 
 ```sql
 SELECT enum_range(NULL::location_type)
 ```
 
+Þetta getur verið gagnlegt ef við gleymum hvaða gildi eru lögleg í sérsniðinni gagnatýpu. Þessi
+fyrirspurn gefur okkur lista yfir öll gildi í sérsniðinni gagnatýpu.
+
+| enum_range                              |
+|-----------------------------------------|
+| {Castle,City,Landmark,Region,Ruin,Town} |
+
+Eins og sést að passar við skilgreininguna hér að ofan. Ef við viljum fá hvert gildi í
+sérniðinnni gagnatýpu fyrir sig, þá getum við notað `unnest` fallið á undan.
+
 ## Aðrar breytingar
 
 - **Meira gagnsæi í gagnatýpum**: _PostgreSQL_ býður upp á mun skýrari gagnatýpur, eins og `jsonb`,
-  `tsvector`, og `inet`, sem gerir gagnagrunnsgerðina mun fjölbreyttari og öflugri en _SQLite_. Sjá 
+  `tsvector`, og `inet`, sem gerir gagnagrunnsgerðina mun fjölbreyttari og öflugri en _SQLite_. Sjá
 
 - **Fyrirspurnahagræðing**: _PostgreSQL_ býður upp á öflugri fyrirspurnahagræðingarvélar, sem geta
   aukið afköst fyrir stór gagnasöfn.
-
-Þó _SQLite_ sé einfaldur og hagnýtur gagnagrunnur fyrir minni verkefni, býður _PostgreSQL_ upp á
-marga möguleika sem henta flóknari verkefnum með þörf á sérhæfðari gagnatýpum, fyrirspurnum, og
-gagnavinnslu. 
 
