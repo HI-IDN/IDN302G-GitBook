@@ -68,19 +68,5 @@ OFFSET <tala>;
   gert með tengingu (`JOIN`). Nánar verður farið í hvernig við tengjum saman töflur í
   [hér](sql-advanced/joins.md).
 - `WHERE`: Skilyrði sem takmarkar niðurstöður. Það er einnig hægt að nota undirfyrirspurnir
-  í `WHERE` hlutnum. 
-
-## Undirfyrirspurnir
-
-Undirfyrirspurnir (e. subqueries) eru SQL fyrirspurnir sem keyrðar eru innan annars SQL
-fyrirspurnar.
-
-```sql 
-SELECT name, population
-FROM cities
-WHERE population > (SELECT AVG(population) FROM cities);
-```
-
-Í þessu dæmi finnur undirfyrirspurnin meðaltalsíbúafjölda (`AVG`) fyrir alla borgirnar í cities
-töflunni, og aðalfyrirspurnin skilar borgum með íbúafjölda yfir því meðaltali.
+  í `WHERE` hlutnum (sjá [hér](sql-basics/subquery.md)). 
 

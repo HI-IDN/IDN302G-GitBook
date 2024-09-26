@@ -9,6 +9,7 @@
 * [Töflur](sql-basics/tables.md)
 * [Samsöfnum og hópun](sql-basics/aggregation_and_grouping.md)
 * [Tóm gildi](sql-basics/null.md)
+* [Undirfyrirspurnir](sql-basics/subquery.md)
 * [Heilleiki gagna og skorður](sql-basics/data_integrity.md)
 * [Inn- og útflutningur gagna](sql-basics/import_export_data.md)
 * [Skipanaskrár](sql-basics/script_files.md)
