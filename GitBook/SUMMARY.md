@@ -1,6 +1,13 @@
-# Table of contents
+# Efnisyfirlit
 
 * [Heim](README.md)
+
+## GitHub
+* [Öryggismál](github/security.md)
+
+## Stakræn stærðfræði
+
+## Reglulegar segðir
 
 ## SQL grunnatriði
 
@@ -24,4 +31,5 @@
 * [Sýndartöflur](sql-advanced/views.md)
 * [Föll í SQL](sql-advanced/functions.md)
 * [PostGIS](sql-advanced/postgis.md)
-* [Öryggismál](sql-advanced/security.md)
+
+## Myndræn framsetning
