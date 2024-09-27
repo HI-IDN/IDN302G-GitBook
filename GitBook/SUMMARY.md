@@ -25,7 +25,7 @@
 * [Ítarefni](sql-basics/additional_resources.md)
 
 ## SQL framhald 
-* [Inngangur](sql-advanced/advanced_queries.md)
+* [Inngangur](sql-advanced/introduction.md)
 * [PostgreSQL](sql-advanced/postgres.md)
 * [Sameining niðurstaðna](sql-advanced/union.md)
 * [Samsettar töflur](sql-advanced/joins.md)
