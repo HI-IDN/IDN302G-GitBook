@@ -1,6 +1,6 @@
 ---
 description: >-
-  Helstu munir við að fara úr SQLite yfir í PostgreSQL með áherslu á
+  Helstu munir við að fara úr SQLite yfir í PostgreSQL með áherslu á noktun ólíkra skema,
   flóknari gagnatýpur, regex, og fleiri möguleika.
 ---
 
@@ -13,12 +13,56 @@ gagnavinnslu.
 Hér verða tekin nokkur gagnleg dæmi til að sýna helstu munina á _PostgreSQL_ og _SQLite_, en
 listinn er ekki tæmandi.
 
-## `ARRAY_AGG` og fylki (arrays)
+## Skema - `SCHEMA`
+
+Í _PostgreSQL_ er hægt að skilgreina skemu (_schema_) sem henta til að hópa saman tengdar töflur og 
+önnur gagnagrunnseiningar. Þetta gerir gagnagrunnskerfið meira skipulagt og hægt er að skilja
+betur hvernig gögnin tengjast saman.
+
+Í _SQLite_ eru allar töflur í sama skema, en í _PostgreSQL_ er hægt að skilgreina mörg skemur og
+hafa mismunandi réttindi á milli þeirra. Sjálfgefna skemað er `public`, en hægt er að breyta því 
+með að keyra `set search_path = got;`. Þá get ég keyrt t.d. `SELECT * FROM books;` sem þýðir í 
+raun `SELECT * FROM got.books;` á bak við tjöldin. En áður en ég setti `search_path` þá þyrfti 
+ég tilgreina skemað sérstaklega. Annars fengi ég villu, því það er ekki til tafla í `public` 
+skemanu sem heitir `books`.
+
+
+### Búa til skema:
+
+```sql
+CREATE SCHEMA got;
+```
+
+### Búa til töflu í skema:
+
+```sql
+CREATE TABLE got.books
+(
+    id              serial primary key,
+    name            text,
+    isbn            text,
+    authors         text[],
+    number_of_pages integer,
+    publisher       text,
+    country         text,
+    media_type      text,
+    released        date
+);
+```
+
+Ef ekkert skema er gefið upp, þá er sjálfgefna skemað `public` notað, nema það hafi verið breytt 
+með `set search_path` áður.
+
+
+
+## Fylki og fylkjaðgerðir - `ARRAY`
 
 Í _PostgreSQL_ er hægt að vinna með fylki og nota samantektaraðgerðir eins og `ARRAY_AGG` til að
-safna
-saman gögnum í eitt fylki. Þetta býður upp á mun meiri sveigjanleika í að vinna með tengdar
+safna saman gögnum í eitt fylki. Þetta býður upp á mun meiri sveigjanleika í að vinna með tengdar
 upplýsingar og hópa saman gögn.
+
+Til að skilgreina fylkjadálkagerð í _PostgreSQL_ er hægt að nota `[]` eða `ARRAY[]` fyrir 
+gagnatýpuna, einsog við sjáum hér að neðan fyrir `authors` dálkinn.
 
 ```sql
 SELECT region,
@@ -37,14 +81,14 @@ ORDER BY region;
 Fyrirspurnin skilar lista af svæðum með fylki af nöfnum fyrstu 5 húsanna á hverju svæði, raðað í
 stafrófsröð.
 
-- **SELECT region**: Velur svæði úr `got.houses`.
-- **ARRAY(... AS houses)**: Innri fyrirspurn safnar fylki af húsanöfnum sem tilheyra hverju svæði,
+- `SELECT region`: Velur svæði úr `got.houses`.
+- `ARRAY(... AS houses)`: Innri fyrirspurn safnar fylki af húsanöfnum sem tilheyra hverju svæði,
   raðað í stafrófsröð með takmörkun á 5 nöfnum.
-    - **WHERE h.region = houses.region**: Velur hús sem tilheyra sama svæði.
-    - **ORDER BY name**: Raðar húsum í stafrófsröð.
-    - **LIMIT 5**: Takmarkar niðurstöður við fyrstu 5 húsin.
-- **GROUP BY region**: Hópar niðurstöður eftir svæði.
-- **ORDER BY region**: Raðar niðurstöðum eftir svæðisnafni.
+    - `WHERE h.region = houses.region`: Velur hús sem tilheyra sama svæði.
+    - `ORDER BY name`: Raðar húsum í stafrófsröð.
+    - `LIMIT 5`: Takmarkar niðurstöður við fyrstu 5 húsin.
+- `GROUP BY region`: Hópar niðurstöður eftir svæði.
+- `ORDER BY region`: Raðar niðurstöðum eftir svæðisnafni.
 
 | Region          | Houses                                                                                                                                            |
 |-----------------|---------------------------------------------------------------------------------------------------------------------------------------------------|
@@ -127,16 +171,16 @@ karaktera og safnar þeim saman í fylki fyrir hvern karakter. Niðurstöðurnar
 þannig að karakterar með samsvörun koma fyrst, og karakterar með engar samsvörunir (`NULL`) koma
 síðast, síðan raðað eftir nafni.
 
-- **`regexp_matches(born, '(\d+)\sAC\y', 'g')`**: Hér er verið að nota reglulega segðina til að
-  finna tölur sem eru fyrir framan strenginn "AC" og það er notað **`\y`** til að tákna
+- `regexp_matches(born, '(\d+)\sAC\y', 'g')`: Hér er verið að nota reglulega segðina til að
+  finna tölur sem eru fyrir framan strenginn "AC" og það er notað `\y` til að tákna
   orðamörk (word boundary) í _PostgreSQL_. 
   > Athugið að í _PostgreSQL_ er `\y` notað fyrir orðamörk en
   ekki `\b`, sem er algengara í öðrum regex tólum.
 
-- **`ARRAY_AGG(match[1]::int)`**: Safnar öllum samsvörunum (tölustöfunum fyrir "AC") í fylki, en
+- `ARRAY_AGG(match[1]::int)`: Safnar öllum samsvörunum (tölustöfunum fyrir "AC") í fylki, en
   fyrst er gildinu breytt í heiltölu með `::int`.
 
-- **`ORDER BY matches DESC NULLS LAST, name`**: Fyrirspurnin raðar niðurstöðunum þannig að þeir sem
+- `ORDER BY matches DESC NULLS LAST, name`: Fyrirspurnin raðar niðurstöðunum þannig að þeir sem
   hafa samsvörun við "XXX AC" koma fyrst (í lækkandi röð) og aðrir (með `NULL`) koma síðast.
 
 | name           | born                            | matches    |
