@@ -64,6 +64,9 @@ upplýsingar og hópa saman gögn.
 Til að skilgreina fylkjadálkagerð í _PostgreSQL_ er hægt að nota `[]` eða `ARRAY[]` fyrir 
 gagnatýpuna, einsog við sjáum hér að neðan fyrir `authors` dálkinn.
 
+Sjá skjölun á [PostgreSQL](https://www.postgresql.org/docs/17/arrays.html) fyrir frekari 
+upplýsingar um fylki.
+
 ```sql
 SELECT region,
        ARRAY(
@@ -126,7 +129,7 @@ Hér eru nokkur algeng notkunardæmi:
 - `>>`: Athugar hvort fyrri bilið sé til hægri um seinna bilið.
 
 Sjá [skjölun á PostgreSQL](https://www.postgresql.org/docs/current/rangetypes.html) fyrir
-frekari notkun.
+frekari notkun á `RANGE` gagnatýpum.
 
 ``` sql 
 SELECT name book_after_2012, released
@@ -191,7 +194,7 @@ síðast, síðan raðað eftir nafni.
 | Otto Hightower |                                 |            |
 
 Sjá [skjölun á PostgreSQL](https://www.postgresql.org/docs/current/functions-matching.html)
-fyrir frekari notkun.
+fyrir frekari notkun á regex-aðgerðum.
 
 ## Sérsniðnar gagnatýpur - `ENUM`
 
@@ -200,7 +203,7 @@ vel til að takmarka gildin í dálkum. Til dæmis er hægt að búa til sérsni
 staðsetningarflokka (_location types_) í _Game of Thrones_ gagnagrunni.
 
 Sjá [skjölun á PostgreSQL](https://www.postgresql.org/docs/current/datatype-enum.html) fyrir
-frekari notkun.
+frekari notkun á sérsniðnum gagnatýpum.
 
 ### Búa til sérsniðna gagnatýpu:
 
