@@ -39,10 +39,17 @@ Kennari námskeiðins er Helga Ingimundardóttir.
   <tbody>
       <tr>
         <td><strong>SQL</strong></td>
-        <td>Inngangur</td>
+        <td>Grunnur (SQLite)</td>
         <td><a href=".gitbook/assets/1.png">1.png</a></td>
         <td></td>
         <td><a href="sql-basics/introduction.md">introduction.md</a></td>
+      </tr>      
+      <tr>
+        <td><strong>SQL</strong></td>
+        <td>Framhald (PostgreSQL)</td>
+        <td><a href=".gitbook/assets/2.png">1.png</a></td>
+        <td></td>
+        <td><a href="sql-advanced/introduction.md">introduction.md</a></td>
       </tr>      
     </tbody>
 </table>
