@@ -47,12 +47,12 @@ eru nokkur af helstu föllum sem PostGIS býður upp á:
     ```sql
     SELECT ST_MakePolygon( ST_GeomFromText('LINESTRING(75 29,77 29,77 29, 75 29)'));
     ```
-  sem væri marghyrningur með hornpunkta `(75, 29)`, `(77, 29)`, `(77, 29)`, `(75, 29)`.
+  sem væri marghyrningur með hornpunkta $$(75, 29)$$, $$(77, 29)$$, $$(77, 29)$$, $$(75, 29)$$.
 - `ST_Area`: Skilar flatarmáli marghyrnings.
     ```sql
     SELECT ST_Area(ST_MakePolygon( ST_GeomFromText('LINESTRING(3 3, 3 5, 5 5, 5 3, 3 3)') ));
     ```
-  gefur `4` (fermetra) sem er flatarmál fernings með hliðarlengd `2` og upphaf í `(3, 3)`.
+  gefur `4` (fermetra) sem er flatarmál fernings með hliðarlengd `2` og upphaf í $$(3, 3)$$.
 - `ST_Length`: Skilar lengd línu eða línuhluta.
     ```sql
     SELECT ST_Length(
@@ -64,8 +64,7 @@ eru nokkur af helstu föllum sem PostGIS býður upp á:
   sem gefur `5.06449510224598` sem er það sama og evklíðsa fjarlægðin á milli $$(1,1)$$ og $$(3,3)
   $$ og svo $$(3,3)$$ og $$(4,5)$$:
 
-  $$ \text{length} = \sqrt{(3 - 1)^2 + (3 - 1)^2} + \sqrt{(4 - 3)^2 + (5 - 3)^2} = \sqrt{8} +
-  \sqrt{5} \approx 5.07$$
+  $$ \text{length} = \sqrt{(3 - 1)^2 + (3 - 1)^2} + \sqrt{(4 - 3)^2 + (5 - 3)^2} = \sqrt{8} + \sqrt{5} \approx 5.07$$
 
 - `ST_Distance`: Skilar minnstu fjarlægð milli tveggja hluta (gæti verið punktur eða marghyrningur)
   ```sql
@@ -76,8 +75,8 @@ eru nokkur af helstu föllum sem PostGIS býður upp á:
         )
     );
   ```
-  sem skilar `1.4142135623730951` sem er sama og evklíðska fjarlægðin milli punktanna `(0, 0)`
-  og `(1, 1)`, sem er næsti hornpunkturinn í marghyrningnum.
+  sem skilar `1.4142135623730951` sem er sama og evklíðska fjarlægðin milli punktanna $$(0, 0)$$
+  og $$(1, 1)$$, sem er næsti hornpunkturinn í marghyrningnum.
 
 - `ST_Contains`: Skilar `TRUE` ef fyrri marghyrningurinn inniheldur seinni marghyrninginn. 
    - Sönn tilfelli 
