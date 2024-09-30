@@ -61,8 +61,9 @@ eru nokkur af helstu föllum sem PostGIS býður upp á:
         )
     );
     ```
-  sem gefur `5.06449510224598` sem er það sama og evklíðsa fjarlægðin á milli $(1,1)$ og $(3,3)
-  $ og svo $(3,3)$ og $(4,5)$:
+  sem gefur `5.06449510224598` sem er það sama og evklíðsa fjarlægðin á milli $$(1,1)$$ og $$(3,3)
+  $$ og svo $$(3,3)$$ og $$(4,5)$$:
+
   $$ \text{length} = \sqrt{(3 - 1)^2 + (3 - 1)^2} + \sqrt{(4 - 3)^2 + (5 - 3)^2} = \sqrt{8} +
   \sqrt{5} \approx 5.07$$
 
@@ -93,9 +94,9 @@ eru nokkur af helstu föllum sem PostGIS býður upp á:
 
 
 - `ST_Intersection`: Skilar skurðpunktum tveggja marghyrna, og skilar `NULL` ef marghyrnarnir 
-  skerast ekki, sbr. $A\cap B$. Nátengt fall `ST_Intersects` skilar `TRUE` ef marghyrnarnir 
+  skerast ekki, sbr. $$A\cap B$$. Nátengt fall `ST_Intersects` skilar `TRUE` ef marghyrnarnir 
   skerast, en skilar ekki skurðpunktum, `FALSE` annars.
-- `ST_Union`: Sameinar tvo marghyrninga, sbr. $A\cup B$.
+- `ST_Union`: Sameinar tvo marghyrninga, sbr. $$A\cup B$$.
 - `ST_Buffer`: Býr til svæði með gefinni fjarlægð frá gefnum punkti.
     ```sql
     SELECT ST_Buffer(
