@@ -31,6 +31,7 @@
 * [Samsettar töflur](sql-advanced/joins.md)
 * [Sýndartöflur](sql-advanced/views.md)
 * [Föll í SQL](sql-advanced/functions.md)
+* [Flóknari SQL fyrirspurnir með CTE](sql-advanced/cte.md)
 * [PostGIS](sql-advanced/postgis.md)
 
 ## Myndræn framsetning

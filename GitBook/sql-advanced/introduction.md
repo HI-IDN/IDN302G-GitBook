@@ -1,6 +1,6 @@
 ---
 description: >-
-  Við kynnum flóknari SQL aðgerðir, þar á meðal tengingar (joins) og flóknari undirfyrirspurnir 
+  Við kynnum flóknari SQL aðgerðir, þar á meðal tengingar (joins) og flóknari fyrirspurnir 
   svokallaðar CTE (Common Table Expression).
 ---
 
