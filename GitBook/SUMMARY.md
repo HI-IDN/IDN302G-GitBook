@@ -37,5 +37,6 @@
 ## Myndræn framsetning
 * [Inngangur](storytelling/introduction.md)
 * [Hraðkynning](storytelling/lightning_talk.md)
-* [Gröf og töflur](storytelling/visuals.md)
+* [Helstu gröf og töflur](storytelling/visuals_major.md)
+* [Önnur gröf](storytelling/visuals_minor.md)
 * [Gagnafrásögn](storytelling/data_narrative.md)
