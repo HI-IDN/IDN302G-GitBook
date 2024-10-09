@@ -47,9 +47,16 @@ Kennari námskeiðins er Helga Ingimundardóttir.
       <tr>
         <td><strong>SQL</strong></td>
         <td>Framhald (PostgreSQL)</td>
-        <td><a href=".gitbook/assets/2.png">1.png</a></td>
+        <td><a href=".gitbook/assets/2.png">2.png</a></td>
         <td></td>
         <td><a href="sql-advanced/introduction.md">introduction.md</a></td>
-      </tr>      
+      </tr>
+      <tr>
+        <td><strong>Myndræn framsetning</strong></td>
+        <td>Myndræn framsetning</td>
+        <td><a href=".gitbook/assets/3.png">3.png</a></td>
+        <td></td>
+        <td><a href="storytelling/introduction.md">introduction.md</a></td>
+      </tr>
     </tbody>
 </table>
