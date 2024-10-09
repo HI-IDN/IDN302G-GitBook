@@ -24,11 +24,17 @@ Hér eru algengar tegundir af hraðkynningum:
 - **Markmið**: Tala minna, sýna meira. Þetta format leggur áherslu á myndræna framsetningu og
   skýrleika.
 
-### Dæmi: Reykjavík DataBeers
+### Reykjavík DataBeers
 
-Reykjavík DataBeers, haldið fjórum sinnum á ári, notar PechaKucha-stíl. Kynningarnar snúast um
-gagnamál á Íslandi, og hver kynning notar ca 20 glærur. Heildarlengd er um 7 per fyrirlesara og
-svo spurningar úr sal. Ávallt 4 fyrirlesarar á hverju kvöldi.
+[Reykjavík DataBeers](https://databeers.is/), haldið fjórum sinnum á ári, notar PechaKucha-stíl.
+Kynningarnar snúast um gagnamál á Íslandi, og hver kynning notar ca 20 glærur.
+Heildarlengd er um 7 per fyrirlesara og svo spurningar úr sal. Ávallt 4 fyrirlesarar á hverju
+kvöldi. Opið öllum og frítt inn. Best að fylgjast með næstu viðburðum á 
+[Facebook síðu DataBeers](https://www.facebook.com/databeersrek).
+
+> Nemendur í *Upplýsingarverkfræði* og *Viðskiptagreind* eru eindregið hvattir til að mæta og
+> hlýða á erindin. Þetta er gott tækifæri til að kynnast fólki í atvinnulífinu og hvernig 
+> fyrirtæki eru að vinna í gagnadrifnum ákvörðunartökum.
 
 ## Ignite
 
@@ -58,18 +64,18 @@ Hún er hönnuð til að ná athygli hlustandans og koma skilaboðum hratt og ö
 Hugmyndin er að þú ættir að geta útskýrt hugmynd þína á sama tíma og tekur að ferðast milli hæða
 í lyftu.
 
-### Helstu atriði í elevator pitch:
+Helstu atriði í lyfturæðu eru:
 
-- Hver þú ert eða hvað þú gerir: Skýr útskýring á því hver þú ert eða hvað verkefnið snýst um.
-- Hvaða lausn þú býður upp á: Hvernig lausn þín eða hugmynd hefur virði fyrir viðkomandi.
-- Hvers vegna það skiptir máli: Af hverju ætti hlustandinn að hafa áhuga á þessu?
+- **Hver þú ert eða hvað þú gerir**: Skýr útskýring á því hver þú ert eða hvað verkefnið snýst um.
+- **Hvaða lausn þú býður upp á**: Hvernig lausn þín eða hugmynd hefur virði fyrir viðkomandi.
+- **Hvers vegna það skiptir máli**: Af hverju ætti hlustandinn að hafa áhuga á þessu?
 
-### Dæmi um elevator pitch:
+Dæmi um lyfturæðu væri til dæmis:
 
-„Ég er að þróa nýtt greiningartól fyrir Daenerys Targaryen sem safnar gögnum frá öllu Westeros
-til að greina hvar stuðningur hennar er sterkastur. Með þessum upplýsingum getur hún skipulagt
-herferðir gegn Lannisterunum og gert hraðari ákvarðanir um hvaða bandamenn að semja við. Með
-þessu tryggjum við sigur hennar á _the Iron throne_.“
+> „Ég er að þróa nýtt greiningartól fyrir Daenerys Targaryen sem safnar gögnum frá öllu Westeros
+> til að greina hvar stuðningur hennar er sterkastur. Með þessum upplýsingum getur hún skipulagt
+> herferðir gegn Lannisterunum og gert hraðari ákvarðanir um hvaða bandamenn að semja við. Með
+> þessu tryggjum við sigur hennar á _the Iron throne_.“
 
 ## Stóra myndin
 
