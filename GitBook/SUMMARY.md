@@ -35,3 +35,6 @@
 * [PostGIS](sql-advanced/postgis.md)
 
 ## Myndræn framsetning
+* [Inngangur](storytelling/introduction.md)
+* [Hraðkynning](storytelling/lightning_talk.md)
+* [Gagnafrásögn](storytelling/data_narrative.md)
