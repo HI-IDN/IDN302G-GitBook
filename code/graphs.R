@@ -265,3 +265,37 @@ p <- ggplot(scatter_dat,
 
 ggplotly(p) %>%
   layout(legend = list(orientation = "h", x = 0.5, xanchor = "center", y = -0.2))
+
+
+dat <- dbGetQuery(con, "select full_name, gender, unnest(books) as book
+                    from lausn.v_pov_characters_human_readable") %>%
+  group_by(book) %>%
+  summarise(cnt = n())
+
+bar_plot <- ggplot(dat, aes(y = book, x = cnt, group = 1)) +
+  geom_bar(stat = 'identity') +
+  geom_text(aes(label = cnt), hjust = -0.2) +  # Adding count at the end of each bar
+  theme_minimal() +
+  labs(
+    title = '',
+    x = 'Count',
+    y = NULL
+  )
+
+pie_chart <- dat %>%
+  ggplot(aes(x = "", y = cnt, fill = fct_reorder(book, -cnt))) +
+  geom_bar(width = 1, stat = 'identity', color='white') +  # Bar chart with single width for the pie
+  coord_polar(theta = "y") +                # Convert to pie chart
+  theme_void() +                            # Clean up axes and background
+  labs(
+    title = 'Number of POV characters by book',
+    fill = 'Book'
+  ) +
+  # Add count labels inside the pie chart
+  geom_text(aes(x = 1.6, label = cnt), position = position_stack(vjust = .5)) +
+  theme(legend.position = 'bottom')  # Move the legend to the bottom of the plot
+
+p <- plot_grid(pie_chart, bar_plot, ncol = 2, rel_widths = c(1, 1))
+ggsave('GitBook/GitBook/storytelling/figures/piechart_vs_barchart.png', plot = p,
+       width = 10, height = 4, dpi = 120)
+
