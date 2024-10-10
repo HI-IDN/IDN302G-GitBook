@@ -39,4 +39,6 @@
 * [Hraðkynning](storytelling/lightning_talk.md)
 * [Helstu gröf og töflur](storytelling/visuals_major.md)
 * [Önnur gröf](storytelling/visuals_minor.md)
+* [Gagnvirk gröf](storytelling/interactive.md)
+* [Mælaborð](storytelling/dashboard.md)
 * [Gagnafrásögn](storytelling/data_narrative.md)
