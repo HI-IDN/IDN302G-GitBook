@@ -76,7 +76,7 @@ Nánar um [Data Table](https://www.storytellingwithdata.com/blog/2020/9/24/what-
 Til að hanna fallega og nothæfa töflu er mikilvægt að einfalda hana og gera hana auðlesna:
 
 - **Notaðu ljósar línur**: Þykkar svartar línur geta dregið óþarflega mikla athygli frá gögnunum.
-  Ljósgráar línur eru betri valkostur.
+  Ljósgráar þunnar línur eru betri valkostur.
 - **Fjarlægðu óþarfa skugga og umgjörð**: Of miklar útlínur eða skyggingar geta gert töfluna
   óþarflega þunga.
 - **Bættu við sjónrænum þáttum**: Það getur verið gagnlegt að bæta við sjónrænum þáttum eins og
@@ -114,16 +114,16 @@ Dreifirit nýtast vel til að greina gögn á rannsóknarstigi, en þau geta lí
 upplýsinga þegar þau eru rétt hönnuð. Til dæmis er oft notað litakóða eða bæta við meðaltalslínum
 til að gera mynstrin enn skýrari og aðgreina þau gildi sem skera sig úr frá meðaltalinu.
 
-### Kostir dreifirita:
+### Kostir dreifirits
 
-- **Sýna samband tveggja breyta**: Hvert gagnapunktur í dreifiriti táknar sambandið milli tveggja
+- **Sýna samband tveggja breyta**: Hver gagnapunktur í dreifiriti táknar sambandið milli tveggja
   tölulegra breyta. Þetta gerir það auðvelt að sjá hvort og hvernig breyturnar tengjast.
 - **Notað í greiningu á útlögum**: Útlagar (outliers) eru gildi sem eru langt frá öðrum
   gögnum og dreifirit gera það auðvelt að greina slík gildi.
 - **Meðaltalslínur og litir**: Meðaltalslínur og litir eru oft notaðir til að sýna hvaða gildi eru
   óvenjuleg eða langt frá meðaltalinu.
 
-### Hönnunarráð:
+#### Hönnunarráð
 
 - **Fjarlægja óþarfa sjónræna þætti**: Þegar dreifirit er notað í kynningu er oft best að fjarlægja
   trendlínur og óþarfa línur sem gætu flækt myndina.
@@ -147,32 +147,40 @@ eða ár. Þau eru oft notuð til að sýna tímaraðir, eins og fjölda ferðam
 þau bjóða upp á sveigjanleika í framsetningu þar sem hægt er að sýna fleiri en eina tímaröð á sama
 grafi.
 
-### Kostir línurita
+#### Kostir línurita
 
 - **Sýnir breytingar yfir tíma**: Línurit er best notað þegar þú vilt sýna hvernig gildi breytist
   yfir tíma eða bera saman hvernig fleiri en ein breyta þróast yfir sama tímabil.
-- **Einfallt og skiljanlegt**: Línurit eru einföld og auðskilin þar sem þau hjálpa að sýna
+- **Einfalt og skiljanlegt**: Línurit eru einföld og auðskilin þar sem þau hjálpa að sýna
   breytingar og þróun á einfaldan hátt.
 - **Fleiri tímarásir**: Hægt er að teikna fleiri en eina tímaröð á sama línuriti, en passið að nota
   liti skynsamlega til að greina á milli þeirra.
 
-### Hvenær á ekki að nota línurit?
+#### Hvenær á ekki að nota línurit?
 
 - **Ekki notað fyrir flokkabreytur**: Línurit eiga ekki við þegar um er að ræða flokkabreytur, þar
   sem línur tengja saman ólík atriði sem ekki eiga að vera tengd.
 - **Villandi notkun á bili**: Ef bilin á milli mælinga eru ekki samfelld (t.d. 10 ár milli tveggja
   punkta og síðan aðeins 1 ár milli næstu) getur það orðið villandi.
 
-### Hönnun góðs línurits
+#### Hönnun góðs línurits
 
 - **Meðaltalslínur og skýringar**: Línuritum er oft bætt við meðaltalslínum eða öðrum sjónrænum
   vísbendingum til að veita betri samhengi, en gæta þarf að það sé ekki of mikið sjónrænt álag.
 - **Tímaraðir með mörgum línum**: Ef þú ert að sýna fleiri en 4-5 línur á línuriti, vertu viss um að
-  notast við skýrar litaval og merkja helstu línur. Því fleiri línur, því meira flækjustig og því
+  notast við skýrt litaval og merkja helstu línur. Því fleiri línur, því meira flækjustig og því
   meiri hætta á að áhorfendur missi yfirsýn.
 - **Y-ás byrjar ekki alltaf á núlli**: Það er ekki alltaf nauðsynlegt að y-ás byrji á núlli,
   sérstaklega þegar breytingar eru smávægilegar og þarf að sýna mun betur. Hins vegar þarf
   áhorfendur að vera meðvitaðir um slíkt til að forðast misskilning.
+- **Skala ása meðvitað**: Breytingar á skölun á x- eða y-ásum geta haft mikilvæg áhrif á túlkun
+  gagna í myndrænum framsetningum. Til dæmis er logaritmísk skölun (t.d. með `scale_x_log10()`)
+  sérstaklega gagnleg þegar unnið er með gögn sem hafa vítt svið, þar sem hún getur hjálpað til við
+  að draga úr áhrifum stórra afbrigða. Öfugt við það getur breytileg stærð eins og ferningsrót (t.d.
+  með `scale_y_sqrt()`) gert gögn skiljanlegri ef dreifingin er ójöfn. Að snúa ásum
+  (með `scale_y_reverse()`) getur einnig verið gagnlegt í ákveðnum aðstæðum þar sem röð gagna er
+  mikilvæg (þetta á frekar við um flokkabreytur en samfelldar). Það er mikilvægt að velja rétta
+  skölun eftir eðli gagna og tilgangi framsetningar til að forðast að rugla lesandann.
 
 ![Línurit sem sýnir árlegan fjölda fæðinga og dauðsfalla í GOT](figures/linegraph_births_deaths.png)
 
@@ -196,24 +204,24 @@ Hallarit er svipað og línurit, en með þeim mun að hver lína hefur aðeins 
 milli tveggja flokka. Markmið hallarits er að sýna hvort gildi hafi hækkað, lækkað, eða haldist
 óbreytt milli þessara tveggja punkta.
 
-### Kostir
+#### Kostir
 
 - **Sýnir breytingar skýrt**: Hallarit gerir breytingar milli tveggja punkta greinilegri. Hallinn á
   línunni sýnir hvort gildi hafi aukist eða minnkað, og því brattari sem hallinn er, því meiri er
   breytingin.
 - **Einblínir á samanburð**: Með því að einungis bera saman tvo punkta er auðveldara að sjá hver
   breytist mest á milli þeirra.
-- **Einfallt að túlka**: Fyrir flóknari gagnasöfn sem innihalda mörg flökt yfir tíma er hallarit
+- **Einfalt að túlka**: Fyrir flóknari gagnasöfn sem innihalda mörg flökt yfir tíma er hallarit
   góð leið til að draga saman þróun án þess að tímabilin á milli þurfi að vera sýnileg.
 
-### Gallar
+#### Gallar
 
 - **Takmarkað fyrir tímaröð**: Ef þörf er á að skoða þróun yfir lengra tímabil með mörgum
   tímapunktum er línurit betra.
 - **Gefur ekki nákvæmar tölur**: Hallarit sýnir breytingar en ekki nákvæmar tölur. Fyrir slík
   tilvik er súlurit betra.
 
-### Dæmi um notkun hallarits
+#### Dæmi um notkun hallarits
 
 ![Hallarit og súlurit sem sýnir muninn á fjölda fæðinga og dauðsfalla í GOT](figures/slopechart_vs_barchart.png)
 
@@ -244,15 +252,14 @@ Nánar um [Slope Graph](http://www.storytellingwithdata.com/blog/2020/7/27/what-
 
 ## Stöplarit - Bar Chart
 
-Stöplarit eru algeng tegund grafík til að setja fram flokkagögn eða gögn flokkuð í hópa. Í
+Stöplarit eru algeng myndræn framsetning til að setja fram flokkagögn eða gögn flokkuð í hópa. Í
 stöplariti er lengd hvers stöpuls í réttu hlutfalli við gildið sem hann táknar – því lengri sem
 stöpullinn er, því hærra er gildið. Þetta gerir stöplarit mjög skiljanleg þar sem augu okkar eru góð
 í að bera saman lengdir á hlutum sem eru í sama grunnlínu. Þar með er auðvelt að bera saman stærðir
 milli hópa með því að skoða hæðina á stöpulunum.
 
-Nánar um [Bar Chart](https://www.storytellingwithdata.com/blog/2020/2/19/what-is-a-bar-chart)
-og [Stacked Bar Chart](https://www.storytellingwithdata.com/blog/stacked-bars) á *Storytelling with
-data.*
+> Stöplarit byrjar _alltaf_ á núlli á lóðréttum ásnum til að tryggja réttan samanburð. Það er þó í
+> lagi að breyta sköluninni á lóðréttum ásnum ef það er nauðsynlegt til að sjá breytingar skýrar.
 
 ### Venjulegt stöplarit
 
@@ -268,15 +275,22 @@ stöplarita og er oft notað til að sýna einfaldan samanburð á milli mismuna
 - Grunnlínan á lóðrétta ásnum (y-ásinn) ætti alltaf að byrja á núlli til að forðast villandi
   framsetningu.
 
-### Stöplarit með stöflum (Stacked Bar Chart)
+Nánar um [Bar Chart](https://www.storytellingwithdata.com/blog/2020/2/19/what-is-a-bar-chart)
+á *Storytelling with data.*
 
-Í stöplariti eru tvær eða fleiri flokkabreytur sýndar í sama stöpli. Fyrri breytan er sýnd með
-heildarhæð stöplanna, og önnur breyta er sýnd með undirhlutum innan hvers stöpuls. Stöfluritin geta
-verið gagnleg til að sjá heildarmagn og hvernig undirhlutarnir leggja til þessa heildar. Hins vegar
-er oft erfitt að bera saman undirhluta stöplanna þar sem þeir hafa ekki samræmdar grunnlínur.
+### Stöplarit með stöflum
+
+Í stöplariti með stöflum  (Stacked Bar Chart) eru tvær eða fleiri flokkabreytur sýndar í sama
+stöpli. Fyrri breytan er sýnd með heildarhæð stöplanna, og önnur breyta er sýnd með undirhlutum
+innan hvers stöpuls. Stöfluritin geta verið gagnleg til að sjá heildarmagn og hvernig undirhlutarnir
+leggja til þessa heildar. Hins vegar er oft erfitt að bera saman undirhluta stöplanna þar sem þeir
+hafa ekki samræmdar grunnlínur.
 
 Notkun stöflurita getur verið gagnleg þegar bæði heildin og undirhlutarnir skipta máli, en ef
 áherslan er á undirhlutana er betra að nota önnur graf.
+
+Nánar um [Stacked Bar Chart](https://www.storytellingwithdata.com/blog/stacked-bars) á
+*Storytelling with data.*
 
 ## Stuðlarit - Histogram
 
@@ -310,21 +324,21 @@ eru notuð til að sýna t.d. heildarjöfnuð eða breytingar á fjölda starfsm
 Nánar um [Waterfall Chart](http://www.storytellingwithdata.com/blog/2020/11/16/what-is-a-waterfall)
 á *Storytelling with data.*
 
-### Hvernig virkar fossarit?
+#### Hvernig virkar fossarit?
 
 Í fossariti eru aðeins fyrsti og síðasti stöpullinn bundnir við sameiginlega grunnlínu (venjulega
 núll). Miðstöplarnir eru settir á mismunandi grunnlínur byggt á hlaupandi samtölu og mynda þannig
 eins konar stigastefnu milli byrjunar- og lokapunkta. Þetta getur verið krefjandi fyrir áhorfendur
 að túlka, en litir og tengingar á milli stimpla geta gert það skýrara.
 
-### Notkun á fossarit
+#### Notkun á fossarit
 
 Fossarit er oft notað í fjármálum til að sýna innstreymi og útstreymi fjármuna, eða í mannauðsmálum
 til að sýna ráðningar og uppsagnir. Þetta rit er sérstaklega gott til að sýna samsetningu breytinga
 á milli upphafs- og lokagildis, þar sem það sýnir ekki bara heildartölur heldur hvað stuðlar að þeim
 breytingum.
 
-### Stöplarit vs fossarit
+#### Stöplarit vs fossarit
 
 Stöplarit sýnir heildargildi hverrar breytu á meðan fossarit brýtur niður breytingar á milli
 upphafs- og lokagildis, sem gefur nákvæmari mynd af því hvernig breytingar eiga sér stað.
