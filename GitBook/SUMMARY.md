@@ -43,3 +43,4 @@
 * [Mælaborð](storytelling/dashboard.md)
 * [Slæm myndræn framsetning](storytelling/donts.md)
 * [Gagnafrásögn](storytelling/data_narrative.md)
+* [Ítarefni](storytelling/additional_resources.md)
