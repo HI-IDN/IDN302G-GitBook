@@ -20,7 +20,7 @@ tölfræðileg atriði eins og miðgildi, lágmarks- og hámarksgildi, og hverni
 fjórðungum. Þrátt fyrir að vera mjög lýsandi fyrir sérfræðinga getur almennur markhópur fundist þau
 óskiljanleg og því ætti að nota þau með varúð þegar aðrir en vísindamenn eru áhorfendur.
 
-### Hvað er kassarit?
+####  Hvað er kassarit?
 
 Kassarit—stundum kallað kassar og strokur (e. box and whisker plot)—er mynd sem sýnir ýmsar
 samantektartölur í einni sýn. Kassarit sýnir:
@@ -35,18 +35,18 @@ Kassinn sjálfur sýnir fjórðungana, þar sem línan í miðjum kassanum tákn
 (whiskers) sýna hámarks- og lágmarksgildi, en ef það eru útlagar (e. outliers), eru þeir sýndir sem
 sérstakir punktar fyrir utan strokurnar.
 
-### Hvenær á að nota kassarit?
+####  Hvenær á að nota kassarit?
 
 Kassarit eru gagnleg þegar þú vilt bera saman dreifingu margra gagnasafna hlið við hlið, t.d.
 samanburð á einkunnum eða launadreifingu. Þau eru einnig hentug til að greina frávik og sjá hvort
 dreifing er breið eða þétt.
 
-### Hvenær á að sleppa kassaritum?
+####  Hvenær á að sleppa kassaritum?
 
 Ef markhópurinn er ekki vel þjálfaður í tölfræði getur verið betra að nota einfaldari gröf. Kassarit
 sýna ekki dreifingu eins vel og dreifirit eða stuðlarit, sem getur falið mikilvægar upplýsingar.
 
-### Afbrigði af kassariti:
+####  Afbrigði af kassariti
 
 - **Breytibreið kassarit - variable width boxplot**: Kassar sýna stærð hópanna.
 - **Kassarit með skörðum - notched boxplot**: Sýna öryggisbil í kringum miðgildi.
@@ -62,34 +62,34 @@ gagnrýnda og misnotaða. Ástæðan er einföld: augað á erfitt með að grei
 sérstaklega þegar sneiðar eru svipaðar að stærð. Þrátt fyrir þetta geta skífurit verið nytsamleg í
 ákveðnum tilvikum, sérstaklega þegar markmiðið er að sýna hlutfallslega skiptingu á einfaldan hátt.
 
-### Hvað er skífurit?
+####  Hvað er skífurit?
 
 Skífurit sýnir samband hluta og heildar með því að skipta gögnum niður í sneiðar sem samsvara
 hlutföllum hverrar breytu af heildinni. Allar sneiðar samanlagt mynda 100%. Þó fólk laðist að
 hringforminu, sem táknar heildina, er erfitt fyrir okkur að bera saman sneiðar, sérstaklega þegar
 þær eru nálægt því að vera jafnstórar.
 
-### Hvenær á að nota skífurit?
+####  Hvenær á að nota skífurit?
 
 Skífurit hentar vel þegar þú vilt sýna hlutfall einstakra flokka í samanburði við heildina. Það er
 hentugt til að sýna að einn hluti af gögnunum sé tiltölulega stærri eða minni en aðrir.
 
-### Hvenær á ekki að nota skífurit?
+####  Hvenær á ekki að nota skífurit?
 
 Þegar gögn þurfa nákvæman samanburð eða eru fleiri en fáir flokkar, ætti að forðast skífurit. Augað
 á erfitt með að meta hlutföll af heild þegar sneiðar eru líkar að stærð. Í slíkum tilvikum er betra
 að nota stöplarit eða línurit.
 
-### Hönnun ráðleggingar fyrir skífurit:
+####  Hönnun ráðleggingar fyrir skífurit
 
-- Forðastu 3D og sprengiskífurit sem rugla lestur gagna.
+- Forðastu 3D og sprengiskífurit (exploding pie chart) sem rugla lestur gagna.
 - Notaðu ekki of margar sneiðar; samræmdu smærri flokka í „Allir aðrir.“
 - Raðaðu sneiðunum eftir stærð til að auðvelda lestur.
 - Settu merkingar beint á sneiðarnar í stað þess að nota skýringarlista.
 
 ![Fjöldi sögumanna eftir bókum í GOT sem skífurit og stöplarit](figures/piechart_vs_barchart.png)
 
-Í þessum myndum er fjöldi sögupersóna með sjónarhorn (POV characters) eftir bók í Game of Thrones
+Í þessum myndum er fjöldi sögupersóna með sjónarhorn (POV characters) eftir bók í _Game of Thrones_
 sýndur bæði sem stöplarit og sem skífurit. Stöplarit býður upp á skýran samanburð þar sem auðvelt er
 að sjá nákvæman fjölda fyrir hverja bók, sem er sérstaklega gagnlegt þegar áherslan er á nákvæmar
 tölur. Skífurit dregur fram hlutfallslegan samanburð og sýnir hversu mikið hver flokkur leggur til

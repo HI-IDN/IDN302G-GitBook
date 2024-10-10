@@ -275,19 +275,26 @@ bar_plot <- ggplot(dat, aes(y = book, x = cnt, group = 1)) +
   )
 
 pie_chart <- dat %>%
+  mutate(book = ifelse(cnt <= 2, "Other books", book)) %>%
+  group_by(book) %>%
+  summarise(cnt = sum(cnt)) %>%
   ggplot(aes(x = "", y = cnt, fill = fct_reorder(book, -cnt))) +
-  geom_bar(width = 1, stat = 'identity', color = 'white') +  # Bar chart with single width for the pie
+  # Bar chart with single width for the pie
+  geom_bar(width = 1, stat = 'identity', color = 'white') +
   coord_polar(theta = "y") +                # Convert to pie chart
   theme_void() +                            # Clean up axes and background
   labs(
     title = 'Number of POV characters by book',
     subtitle = 'Pie chart',
-    fill = 'Book'
   ) +
-  # Add count labels inside the pie chart
-  geom_text(aes(x = 1.6, label = cnt), position = position_stack(vjust = .5))
-p <- (pie_chart + bar_plot) &
-  theme(legend.position = 'bottom')
+  # remove the fill legend
+  guides(fill = "none") +
+  # Add name labels outside the pie chart
+  geom_text(aes(x = 1.7, label = str_wrap(book, width = 15)),
+            position = position_stack(vjust = .5)) +
+  geom_text(aes(x = 1, label = paste0('#',cnt)), position = position_stack(vjust = .5))
+
+p <- (pie_chart + bar_plot)
 ggsave('GitBook/GitBook/storytelling/figures/piechart_vs_barchart.png', plot = p,
        width = 10, height = 4, dpi = 120)
 
