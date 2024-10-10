@@ -41,4 +41,5 @@
 * [Önnur gröf](storytelling/visuals_minor.md)
 * [Gagnvirk gröf og kort](storytelling/interactive.md)
 * [Mælaborð](storytelling/dashboard.md)
+* [Slæm myndræn framsetning](storytelling/donts.md)
 * [Gagnafrásögn](storytelling/data_narrative.md)

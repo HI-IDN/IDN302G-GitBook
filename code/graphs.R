@@ -1,3 +1,5 @@
+Sys.setlocale("LC_ALL", "en_US.UTF-8")
+
 # Hleður inn nauðsynlegum pakkum
 library(DBI)
 library(RPostgres)
@@ -5,9 +7,11 @@ library(dotenv)
 library(tidyverse)
 library(grid)
 library(gridExtra)
-library(cowplot)
+library(ggExtra)
+library(ggtext)
+library(plotly)
 library(scales)
-
+library(patchwork)
 
 # Les .env skrá
 dotenv::load_dot_env(".env")
@@ -57,16 +61,7 @@ text_plot <- ggplot() +
   # Remove axis elements to focus only on text
   theme_void()
 
-dummy_plot <- ggplot() +
-  theme_void() +
-  geom_blank()  # Adds nothing but keeps plot structure intact
-
-p <- plot_grid(
-  bar_plot,  # Your bar plot on the left
-  plot_grid(dummy_plot, text_plot, dummy_plot, nrow = 3, rel_heights = c(1, 1.5, 1)),
-  ncol = 2,  # Arrange bar plot and the grid of plots in two columns
-  rel_widths = c(1, 1)  # Adjust relative widths
-)
+p <- bar_plot + text_plot
 
 # Save the plot
 ggsave('GitBook/GitBook/storytelling/figures/pov_count.png', plot = p,
@@ -93,8 +88,7 @@ text_plot_2 <- ggplot() +
   theme_void()
 
 
-p <- plot_grid(text_plot, text_plot_2, rel_widths = c(1, 1))
-
+p <- text_plot + text_plot_2
 # Save the plot
 ggsave('GitBook/GitBook/storytelling/figures/pov_misleading.png', plot = p,
        width = 6, height = 2, dpi = 120)
@@ -212,7 +206,7 @@ bar_plot <- ggplot(dat, aes(x = str_wrap(war, width = 13), y = cnt, fill = type)
   scale_fill_brewer(palette = 'Set1')  # Set color palette
 
 slope_plot <- ggplot(dat, aes(x = type, y = cnt, group = war, color = war)) +
-  geom_line(size = 1) +  # Line connecting births and deaths for each war
+  geom_line(linewidth = 1) +  # Line connecting births and deaths for each war
   geom_point(size = 2) +  # Points at the start and end of each line
   theme_minimal() +
   labs(
@@ -236,8 +230,7 @@ slope_plot <- ggplot(dat, aes(x = type, y = cnt, group = war, color = war)) +
   theme(legend.position = 'bottom') +
   guides(color = guide_legend(nrow = 2))  # Wrap the color legend into 2 rows
 
-
-p <- plot_grid(slope_plot, bar_plot, ncol = 2, rel_widths = c(1, 1))
+p <- slope_plot + bar_plot
 
 ggsave('GitBook/GitBook/storytelling/figures/slopechart_vs_barchart.png', plot = p,
        width = 10, height = 4, dpi = 120)
@@ -245,7 +238,6 @@ ggsave('GitBook/GitBook/storytelling/figures/slopechart_vs_barchart.png', plot =
 
 # Hlaða inn pökkum
 library(plotly)
-
 
 # Gagnasett og ggplot dreifirit (bætum nafn við fyrir tooltip)
 p <- ggplot(scatter_dat,
@@ -284,18 +276,170 @@ bar_plot <- ggplot(dat, aes(y = book, x = cnt, group = 1)) +
 
 pie_chart <- dat %>%
   ggplot(aes(x = "", y = cnt, fill = fct_reorder(book, -cnt))) +
-  geom_bar(width = 1, stat = 'identity', color='white') +  # Bar chart with single width for the pie
+  geom_bar(width = 1, stat = 'identity', color = 'white') +  # Bar chart with single width for the pie
   coord_polar(theta = "y") +                # Convert to pie chart
   theme_void() +                            # Clean up axes and background
   labs(
     title = 'Number of POV characters by book',
+    subtitle = 'Pie chart',
     fill = 'Book'
   ) +
   # Add count labels inside the pie chart
-  geom_text(aes(x = 1.6, label = cnt), position = position_stack(vjust = .5)) +
-  theme(legend.position = 'bottom')  # Move the legend to the bottom of the plot
-
-p <- plot_grid(pie_chart, bar_plot, ncol = 2, rel_widths = c(1, 1))
+  geom_text(aes(x = 1.6, label = cnt), position = position_stack(vjust = .5))
+p <- (pie_chart + bar_plot) &
+  theme(legend.position = 'bottom')
 ggsave('GitBook/GitBook/storytelling/figures/piechart_vs_barchart.png', plot = p,
+       width = 10, height = 4, dpi = 120)
+
+hsize <- 4  # Hole size for the donut chart
+donut_chart <- dat %>%
+  ggplot(aes(x = hsize, y = cnt, fill = fct_reorder(book, -cnt))) +
+  geom_col(color = 'white') +   # Use geom_col to create the segments with white borders
+  coord_polar(theta = "y") +    # Convert to polar coordinates for a circular plot
+  xlim(c(0.2, hsize + 0.5)) +   # Adjust the x-axis to create the hole in the middle
+  theme_void() +                # Remove the background and axis elements
+  labs(
+    title = '',
+    subtitle = 'Donut chart',
+    fill = 'Book'
+  ) +
+  geom_text(aes(x = hsize, label = cnt), position = position_stack(vjust = 0.5))
+
+# Combine the pie and donut charts while ensuring the legend is collected
+p <- (pie_chart + donut_chart) +
+  plot_layout(ncol = 2, guides = "collect") &
+  theme(
+    legend.box = "horizontal",                    # Ensure the legend is horizontal
+    legend.spacing.x = unit(0.5, 'cm')   # Add space between legend items
+  )
+
+ggsave('GitBook/GitBook/storytelling/figures/piechart_vs_donutchart.png', plot = p,
+       width = 10, height = 4, dpi = 120)
+
+
+# Hlaða inn nauðsynlegum pökkum
+library(ggplot2)
+library(dplyr)
+
+# Búa til sýnidæmi af gögnum
+data <- data.frame(
+  group = c('40 ÁRA OG ELDRI', '16-40 ÁRA', 'GRUNNSKÓLABÖRN', 'LEIKSKÓLABÖRN', 'BÖRN HEIMA',
+            'SAMTALS'),
+  gardabaer_allur = c(8235, 5983, 2533, 1232, 203, 18186),
+  gardabaer_fjol_1 = c(6358, 4045, 1901, 760, 109, 13173),
+  gardabaer_fjol_2 = c(747, 1103, 206, 322, 75, 2453),
+  gardabaer_fjol_3 = c(1130, 835, 426, 150, 19, 2560)
+)
+
+# Umbreyta gögnunum í langt snið til að auðvelda ggplot2 vinnslu
+data_long <- data %>%
+  pivot_longer(cols = -group, names_to = "hverfi", values_to = "fjoldi") %>%
+  mutate(group = factor(group, levels = c('40 ÁRA OG ELDRI', '16-40 ÁRA', 'GRUNNSKÓLABÖRN',
+                                          'LEIKSKÓLABÖRN', 'BÖRN HEIMA', 'SAMTALS')))
+
+data_long %>%
+  filter(group != 'SAMTALS') %>%
+  group_by(hverfi) %>%
+  summarise(n = sum(fjoldi))
+
+# Teikna súlurit með ggplot2
+p <- ggplot(data_long, aes(x = group, y = fjoldi, fill = hverfi)) +
+  geom_bar(stat = "identity", position = "dodge") +
+  geom_text(aes(label = fjoldi), position = position_dodge(width = .9), vjust = -0.5, size = 3) +
+  labs(
+    title = "Garðabær íbúasamsetning eftir hverfum",
+    x = NULL,
+    y = "Fjöldi",
+    fill = NULL
+  ) +
+  theme_minimal() +
+  scale_fill_manual(
+    values = c("blue", "red", "grey", "orange"),
+    labels = c("Garðabær allur", "Garðabær án U og Á", "Urriðaholt", "Álftanes")
+  ) +
+  theme(legend.position = "bottom")
+ggsave('GitBook/GitBook/storytelling/figures/kgp_2D.png', plot = p,
+       width = 10, height = 4, dpi = 120)
+
+# https://johnmackintosh.net/blog/2022-03-13-dual-axis/
+if (file.exists('data/positives.csv')) {
+  positives <- read.csv('data/positives.csv')
+} else {
+  link <- "https://www.opendata.nhs.scot/dataset/b318bddf-a4dc-4262-971f-0ba329e09b87/resource/427f9a25-db22-4014-a3bc-893b68243055/download/trend_ca_20241010.csv"
+  DT <- data.table::fread(link)
+  DT[, Date := lubridate::ymd(Date)]
+
+  positives <- DT[Date >= '2022-03-01' &
+                    Date <= '2022-03-31' &
+                    CAName == 'Glasgow City',
+                  .(Date, CAName, DailyPositive,
+                    FirstInfections, Reinfections)] # grab a handful of relevant columns
+
+  write.csv(positives, 'data/positives.csv') # in case you want to come back to the same data later
+}
+
+# Calculate PercentReinfections
+positives <- positives %>%
+  mutate(PercentReinfections = (Reinfections / DailyPositive),
+         Date = as.Date(Date))
+
+# Plot the base bar plot for DailyPositive and Reinfections
+p1 <- ggplot(positives, aes(Date, DailyPositive, fill = 'DailyPositive')) +
+  geom_col() +
+  geom_col(aes(Date, Reinfections, fill = 'Reinfections')) +
+  theme_minimal() +
+  ggExtra::removeGrid() +
+  theme(legend.position = 'top',
+        plot.title.position = "plot",
+        plot.caption.position = "plot",
+        legend.title = element_text(size = 11),
+        plot.title = element_text(hjust = 0.0),
+        plot.caption = element_text(hjust = 0),
+        axis.title.y.right = element_text(angle = 90))
+
+# Add dual axis for PercentReinfections
+p1 <- p1 +
+  geom_line(mapping = aes(Date, PercentReinfections * 10000),
+            colour = 'grey70', linewidth = 1.2) +
+  geom_point(mapping = aes(Date, PercentReinfections * 10000),
+             colour = 'grey70', size = 2) +
+  scale_x_date(breaks = '2 days', date_labels = '%d %b %y') +
+  scale_y_continuous(sec.axis = ggplot2::sec_axis(~. / 10000,
+                                                  name = "Percentage being reinfections",
+                                                  labels = scales::label_percent()))
+
+# Add manual legend with colors and custom labels
+p1 <- p1 +
+  scale_fill_manual(name = "Legend",  # Create fill legend for bars
+                    values = c("DailyPositive" = "#0391BF",  # NHS SCOTLAND LIGHT BLUE
+                               "Reinfections" = "#FFEC00"),   # NHS SCOTLAND YELLOW
+                    labels = c('Daily cases', 'Daily reinfections')) +
+  scale_color_manual(name = "Legend",  # Create color legend for lines
+                     values = c("PercentReinfections" = "grey70"),
+                     labels = c('Percent of reinfections')) +
+
+  # Combine the two legends into one
+  guides(fill = guide_legend(override.aes = list(linetype = c(0, 0),  # No lines for fill
+                                                 shape = c(NA, NA))),
+         color = guide_legend(override.aes = list(linetype = 1,       # Line for color legend
+                                                  shape = 16)))       # Point for color legend
+
+
+# Add title and labels
+p1 <- p1 +
+  labs(x = "Date",
+       y = "Count of cases",
+       caption = 'Source: Public Health Scotland',
+       title = "<b>31 Day <span style='color:#0391BF;'>Counts</span>, <span style='color:#FFEC00;'>Reinfection totals</span>, and <span style='color:#999999;'>Reinfection Percentages</span></b>") +
+  # Use ggtext's element_markdown to render the title with HTML formatting
+  theme(
+    plot.title = ggtext::element_markdown(size = 14, lineheight = 1.2),
+    plot.caption = element_text(hjust = 0),
+    axis.title.y.right = element_text(angle = 90)
+  ) +
+  ggExtra::rotateTextX()
+
+# Display the plot
+ggsave('GitBook/GitBook/storytelling/figures/double_yaxis.png', plot = p1,
        width = 10, height = 4, dpi = 120)
 
