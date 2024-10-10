@@ -1,3 +1,10 @@
+---
+description: >-
+  Gagnvirk gröf og kort eru öflugt tæki til að miðla flóknum upplýsingum á auðveldan og 
+  gagnvirkan hátt, þar sem notendur geta skoðað gögn, leitað mynstra og fengið ítarlegar 
+  upplýsingar með smelli. 
+---
+
 # Gangvirk gröf og kort
 
 Gagnvirk gögn eru öflug leið til að miðla flóknum upplýsingum á auðskiljanlegan og aðgengilegan
