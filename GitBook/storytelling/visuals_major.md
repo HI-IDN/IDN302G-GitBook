@@ -13,6 +13,12 @@ skýra mynd af þróun, mynstrum og tengslum. Hins vegar þarf að vanda vel til
 tekin um að nota graf til að sýna upplýsingar, því í sumum tilvikum getur einföld framsetning með
 texta verið betri lausn.
 
+Í öllum sýnidæmum sem koma hér á eftir, þá er kóðinn skrifaður í _R_ með `ggplot2` pakkanum og öðrum
+viðeigandi aukapökkum. Hægt er að nálgast kóðann [hér](../code/graphs.R).
+
+
+---
+
 ## Undantekning: Fáar tölur
 
 Ef þið eruð með eina eða tvær tölur til að sýna, sleppið því að nota graf. Þegar aðeins er verið að
@@ -44,6 +50,8 @@ eðlileg eða óeðlileg, þar sem það er ekki ljóst hvort aukningin sé frá
 
 > **Athugasemd**: Með því að íhuga hvort graf sé raunverulega nauðsynlegt getið þið sparað tíma og
 > komið skilaboðum á framfæri með meiri nákvæmni.
+
+---
 
 ## Gagnatafla - Data Table
 
@@ -104,6 +112,8 @@ seríunni. Á lóðrétta ásnum eru bækurnar í réttri röð, frá fyrstu til
 mismunandi menningarhópar. Flísarnar (`geom_tile`) tákna fjölda sögupersóna fyrir hvern menningarhóp
 í hverri bók. Liturinn á flísunum endurspeglar fjöldann, þar sem dekkri litir tákna fleiri persónur.
 
+---
+
 ## Dreifirit - Scatter Plot
 
 Dreifirit (scatter plot) er öflug leið til að sýna samband milli tveggja tölulegra breyta. Þetta
@@ -139,6 +149,8 @@ auðveldar samanburð á milli þeirra.
 
 Nánar um [Scatterplot](http://www.storytellingwithdata.com/blog/2020/5/27/what-is-a-scatterplot) á
 *Storytelling with data.*
+
+---
 
 ## Línurit - Line Graph
 
@@ -197,6 +209,8 @@ mismunandi árum, án þess að missa af smærri sveiflum í fjölda.
 Nánar um [Line Graph](https://www.storytellingwithdata.com/blog/2020/3/24/what-is-a-line-graph) á
 *Storytelling with data.*
 
+---
+
 ## Hallarit - Slope Graph
 
 Hallarit er svipað og línurit, en með þeim mun að hver lína hefur aðeins tvo gagnapunkta. Þetta
@@ -249,6 +263,8 @@ stærðum, en hallaritið leggur áherslu á breytingar milli tveggja punkta.
 
 Nánar um [Slope Graph](http://www.storytellingwithdata.com/blog/2020/7/27/what-is-a-slopegraph) á
 *Storytelling with data.*
+
+---
 
 ## Stöplarit - Bar Chart
 
@@ -308,7 +324,7 @@ Nánar um muninn
 á [Histogram og Bar Chart](https://www.storytellingwithdata.com/blog/2021/1/28/histograms-and-bar-charts)
 á *Storytelling with data.*
 
-## Fossarit - Waterfall Chart
+### Fossarit - Waterfall Chart
 
 Fossarit (waterfall chart) er sérstök tegund af stöplariti sem sýnir hvernig nettóbreytingar í
 einhverju gildi koma til á milli tveggja punkta. Í stað þess að sýna bara upphafsgildi í einum

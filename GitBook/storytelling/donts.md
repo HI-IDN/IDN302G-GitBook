@@ -1,3 +1,10 @@
+---
+description: >-
+  Slæm notkun á gröfum, eins og 3D grafík og graf sem byrjar ekki á núlli, getur auðveldlega 
+  valdið misskilningi og ruglingi. Mikilvægt er að velja skýra og einfaldlega túlkanlega 
+  framsetningu gagna til að tryggja réttan skilning lesenda.
+---
+
 # Slæm notkun á gröfum
 
 ## Kleinuhringjarit
