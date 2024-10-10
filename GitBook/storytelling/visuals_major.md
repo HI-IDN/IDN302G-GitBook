@@ -53,7 +53,7 @@ er mikilvægt að vita hvenær best er að nota töflur og hvernig þær eru han
 Nánar um [Data Table](https://www.storytellingwithdata.com/blog/2020/9/24/what-is-a-table) á
 *Storytelling with data.*
 
-### Hvenær á að nota töflu?
+#### Hvenær á að nota töflu?
 
 - **Blandaður áhorfendahópur**: Töflur henta vel þegar við erum með fjölbreyttan áhorfendahóp, þar
   sem hver og einn getur leitað upp upplýsingar sem eru mikilvægar fyrir hann.
@@ -64,14 +64,14 @@ Nánar um [Data Table](https://www.storytellingwithdata.com/blog/2020/9/24/what-
 - **Aðgengi að öllum gögnum**: Ef þú vilt gefa áhorfendum möguleika á að skoða öll gögnin í
   smáatriðum, er tafla oft góður kostur.
 
-### Hvenær á að sleppa töflum?
+#### Hvenær á að sleppa töflum?
 
 - **Í kynningum**: Þú gætir tapað athygli áhorfenda ef þeir eru að lesa töflu á meðan þú talar. Þá
   er betra að nota graf eða aðra myndræna framsetningu.
 - **Þegar þú vilt sýna mynstur**: Ef markmiðið er að draga fram mynstur eða þróun í gögnum, eru gröf
   oft betri þar sem þau auðvelda skilning á heildarmyndinni.
 
-### Hönnun góðrar töflu
+#### Hönnun góðrar töflu
 
 Til að hanna fallega og nothæfa töflu er mikilvægt að einfalda hana og gera hana auðlesna:
 
@@ -82,7 +82,7 @@ Til að hanna fallega og nothæfa töflu er mikilvægt að einfalda hana og gera
 - **Bættu við sjónrænum þáttum**: Það getur verið gagnlegt að bæta við sjónrænum þáttum eins og
   litaðri bakgrunnsmerkingu eða línum til að undirstrika mikilvægar upplýsingar.
 
-### Verkfæri til töflugerðar
+#### Verkfæri til töflugerðar
 
 Til að búa til fallegar töflur í _R_, getur þú notað pakkana `kableExtra` eða `gt`. Í _LaTeX_
 getur þú nýtt þér pakkana `booktabs` og `tabu` til að gera töflur sem eru vel uppsettar og
@@ -114,7 +114,7 @@ Dreifirit nýtast vel til að greina gögn á rannsóknarstigi, en þau geta lí
 upplýsinga þegar þau eru rétt hönnuð. Til dæmis er oft notað litakóða eða bæta við meðaltalslínum
 til að gera mynstrin enn skýrari og aðgreina þau gildi sem skera sig úr frá meðaltalinu.
 
-### Kostir dreifirits
+#### Kostir dreifirits
 
 - **Sýna samband tveggja breyta**: Hver gagnapunktur í dreifiriti táknar sambandið milli tveggja
   tölulegra breyta. Þetta gerir það auðvelt að sjá hvort og hvernig breyturnar tengjast.
