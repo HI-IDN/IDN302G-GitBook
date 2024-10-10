@@ -290,11 +290,11 @@ pie_chart <- dat %>%
   # remove the fill legend
   guides(fill = "none") +
   # Add name labels outside the pie chart
-  geom_text(aes(x = 1.7, label = str_wrap(book, width = 15)),
+  geom_text(size=3,aes(x = 1.7, label = str_wrap(book, width = 12)),
             position = position_stack(vjust = .5)) +
-  geom_text(aes(x = 1, label = paste0('#',cnt)), position = position_stack(vjust = .5))
+  geom_text(aes(x = 1.1, label = paste0('#', cnt)), position = position_stack(vjust = .5))
 
-p <- (pie_chart + bar_plot)
+p <- pie_chart + bar_plot
 ggsave('GitBook/GitBook/storytelling/figures/piechart_vs_barchart.png', plot = p,
        width = 10, height = 4, dpi = 120)
 
