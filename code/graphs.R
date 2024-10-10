@@ -119,13 +119,14 @@ ggsave('GitBook/GitBook/storytelling/figures/heatmap_culture.png', plot = p,
        width = 10, height = 4, dpi = 120)
 
 
-dat <- dbGetQuery(con, "select c.*, lower(wars.period) as war_start, wars.name as
+scatter_dat <- dbGetQuery(con, "select c.*, lower(wars.period) as war_start, wars.name as
 war from lausn.v_characters c
 left join got.wars ON wars.period @> c.year_died
 where year_died is not null and year_born is not null") %>%
-  mutate(war = fct_reorder(war, war_start, .na_rm = TRUE))
+  mutate(war = fct_reorder(war, war_start, .na_rm = TRUE))  # Keep war as an ordered factor
 
-p <- ggplot(dat, aes(x = year_born, y = age, color = war)) +
+
+p <- ggplot(scatter_dat, aes(x = year_born, y = age, color = war)) +
   geom_point(alpha = .5) +
   theme_minimal() +
   labs(
@@ -221,16 +222,16 @@ slope_plot <- ggplot(dat, aes(x = type, y = cnt, group = war, color = war)) +
     y = 'Count',
     color = 'War'  # Color lines by war
   ) +
-  scale_color_viridis_d()  +
+  scale_color_viridis_d() +
   # Add text labels to the left side (births) and right side (deaths)
   geom_text(data = subset(dat, type == "births"),
-              aes(label = cnt),
-              hjust = 1.5,  # Align text to the right of the line
-              size = 3) +
-    geom_text(data = subset(dat, type == "deaths"),
-              aes(label = cnt),
-              hjust = -0.5,  # Align text to the left of the line
-              size = 3) +
+            aes(label = cnt),
+            hjust = 1.5,  # Align text to the right of the line
+            size = 3) +
+  geom_text(data = subset(dat, type == "deaths"),
+            aes(label = cnt),
+            hjust = -0.5,  # Align text to the left of the line
+            size = 3) +
   scale_y_log10() +
   theme(legend.position = 'bottom') +
   guides(color = guide_legend(nrow = 2))  # Wrap the color legend into 2 rows
@@ -240,3 +241,27 @@ p <- plot_grid(slope_plot, bar_plot, ncol = 2, rel_widths = c(1, 1))
 
 ggsave('GitBook/GitBook/storytelling/figures/slopechart_vs_barchart.png', plot = p,
        width = 10, height = 4, dpi = 120)
+
+
+# Hlaða inn pökkum
+library(plotly)
+
+
+# Gagnasett og ggplot dreifirit (bætum nafn við fyrir tooltip)
+p <- ggplot(scatter_dat,
+            aes(x = year_born, y = age, color = war,
+                text = paste("name:", name))) +
+  geom_point(alpha = .5) +
+  theme_minimal() +
+  labs(
+    title = 'Age at Death and Birth Years of GOT Characters',
+    x = 'Year of Birth',
+    y = 'Age at Death',
+    color = 'War'
+  ) +
+  scale_fill_viridis_d() +
+  # As of 2023-10-26 the easiest and cleanest way to address Plotly's known issue of adding parentheses on dummy scales is setting the respective guide/legend to none.
+  guides(fill = "none")
+
+ggplotly(p) %>%
+  layout(legend = list(orientation = "h", x = 0.5, xanchor = "center", y = -0.2))
