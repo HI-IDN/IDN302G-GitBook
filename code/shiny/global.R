@@ -20,16 +20,20 @@ con <- dbConnect(RPostgres::Postgres(),
                  user = Sys.getenv("PGUSER"),
                  password = Sys.getenv("PGPASSWORD"))
 
+# Default values for filtering
+location_types <- c('Castle', 'Landmark', 'Region', 'City', 'Town', 'Ruin')
+kingdoms <- c('The North', 'The Vale', 'Gift', 'The Riverlands', 'The Westerlands', 'Dorne',
+              'The Reach', 'The Stormlands', 'Iron Islands', 'The Crownsland', 'Outside Westeros')
+
+
 # Query for location data
 location_data <- dbGetQuery(con, "SELECT * FROM shiny.locations") %>%
   # Convert Well-Known Text (WKT) format to sf spatial object with WGS 84 coordinate reference system (CRS)
   st_as_sf(wkt = "geom_wkt", crs = 4326)  # EPSG 4326 represents WGS 84, the most common GPS system
 
 # Query for kingdom data
-query_kingdoms <- "SELECT gid, name, ST_AsText(geog) as geom_wkt FROM atlas.kingdoms"
-kingdom_data <- dbGetQuery(con, query_kingdoms) %>%
-  st_as_sf(wkt = "geom_wkt", crs = 4326) %>%
-  mutate(color = colorRampPalette(colors = rainbow(n()))(n()))
+kingdom_data <- dbGetQuery(con, "SELECT * FROM shiny.kingdoms") %>%
+  st_as_sf(wkt = "geom_wkt", crs = 4326)
 
 # Query for house data
 house_data <- dbGetQuery(con, "SELECT * FROM shiny.houses") %>%
