@@ -105,7 +105,7 @@ shinyApp(ui = ui, server = server)
 > innan úr R.
 
 Skráin myndi heita [app.R](../code/app.R) og vera í möppu sem heitir til dæmis `shiny_app` og á
-sama stað væri gagnamappan vera `data` sem inniheldur gangagrunnninn
+sama stað væri gagnamappan vera `data` sem inniheldur gagnagrunninn
 [`isfolkid.db`](../data/isfolkid.db). Við keyrum upp appið úr kóða möppunni með skeljarskipuninni:
 
 ```bash

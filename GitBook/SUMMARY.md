@@ -14,7 +14,7 @@
 * [Inngangur](sql-basics/introduction.md)
 * [Grunn SQL fyrirspurnir](sql-basics/basic_sql_queries.md)
 * [Töflur](sql-basics/tables.md)
-* [Samsöfnum og hópun](sql-basics/aggregation_and_grouping.md)
+* [Samsöfnun og hópun](sql-basics/aggregation_and_grouping.md)
 * [Tóm gildi](sql-basics/null.md)
 * [Undirfyrirspurnir](sql-basics/subquery.md)
 * [Heilleiki gagna og skorður](sql-basics/data_integrity.md)

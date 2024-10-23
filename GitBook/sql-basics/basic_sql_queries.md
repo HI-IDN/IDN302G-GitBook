@@ -4,7 +4,7 @@ description: >-
   Einnig hvernig megi setja inn (INSERT), uppfæra (UPDATE) og eyða (DELETE) gögnum í töflum.
 ---
 
-> *Athugið*: Hér koma sýnidæmi með SQL fyrirspurnum fyrir _SQLite_ gangagrunn. Nánar til tekið
+> *Athugið*: Hér koma sýnidæmi með SQL fyrirspurnum fyrir _SQLite_ gagnagrunn. Nánar til tekið
 > skráin [surgeries.db](../../data/surgeries.db) sem inniheldur töflur með upplýsingum um
 > sjúklinga. Lesið [notkun á _SQLite_ skipanaskel](database_interaction.md#notkun-á-skipanaskel)
 > til að sjá hvernig á að snögglega til að sjá hvernig á að tengjast gagnagrunni.

@@ -29,7 +29,7 @@ SELECT MAX(Patient_DaysOnWaitingList)
 FROM Patient_list;
 ```
 
-## Samsöfnum með skilyrðum
+## Samsöfnun með skilyrðum
 
 Einnig er hægt að nota þetta með skilyrðum. Til dæmis, ef við viljum reikna út meðalbiðtíma þeirra
 sem hafa beðið eftir aðgerð og eru undir 50 ára:
