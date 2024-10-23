@@ -114,6 +114,14 @@ sérstakar aðgerðir fyrir gagnagrunna. Hér eru þrjú tól sem mælt er með:
   _PostgreSQL_.
 - Hægt er að tengja _GitHub CoPilot_ við DataGrip til að fá tillögur að SQL fyrirspurnum.
 - Nemandar geta sótt um frítt leyfi sem gildir í eitt ár í senn, á meðan þeir eru í námi.
+- Sækið [DataGrip](https://www.jetbrains.com/datagrip/download/) og fylgið leiðbeiningum fyrir
+  uppsetningu.
+- Opnið nýja tengingu og veljið *PostgreSQL* sem gagnagrunnskerfi. Fyllið inn tengingarupplýsingar
+  sem þið fenguð: host, port, database, user, password. Gott er að prófa tenginguna til að vera
+  viss um að hún virki.
+  - Í fyrsta skipti þarf að bæta við PostgreSQL driver, IDE mun spyrja um það og gefa leiðbeiningar.
+
+![DataGrip tenging](https://www.youtube.com/watch?v=X_RznmyuNyA)
 
 ### 2. [DBeaver](https://dbeaver.io/)
 
@@ -124,6 +132,15 @@ sérstakar aðgerðir fyrir gagnagrunna. Hér eru þrjú tól sem mælt er með:
 - Það býður upp á einfalt og aðgengilegt viðmót.
 - DBeaver er frítt og auðvelt í notkun, sem gerir það að frábærum valkost fyrir nemendur og
   minni fyrirtæki.
+- Sækið [DBeaver Community Edition](https://dbeaver.io/download/) til að byrja. Fylgið leiðbeiningum
+  fyrir uppsetningu.
+- Opnið nýja tengingu og veljið *PostgreSQL* sem gagnagrunnskerfi. Fyllið inn tengingarupplýsingar
+  sem þið fenguð: host, port, database, user, password. Gott er að prófa tenginguna til að vera 
+  viss um að hún virki. 
+  - Í fyrsta skipti þarf að bæta við PostgreSQL driver, IDE mun spyrja um það og gefa leiðbeiningar.
+  
+![DBeaver tenging](https://www.youtube.com/watch?v=W5AumdArlO8)
+
 
 ### 3. [Visual Studio Code (VSCode)](https://code.visualstudio.com/)
 
@@ -135,6 +152,7 @@ sérstakar aðgerðir fyrir gagnagrunna. Hér eru þrjú tól sem mælt er með:
   framleiðni.
 - VSCode er opinn hugbúnaður frá Microsoft og hentar vel fyrir þá sem vilja einfalt og öflugt IDE
   sem virkar m.a. fyrir gagnagrunnskerfi.
+
 
 # Gagnagrunnar með R
 
