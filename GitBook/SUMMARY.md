@@ -2,9 +2,6 @@
 
 * [Heim](README.md)
 
-## GitHub
-* [Öryggismál](github/security.md)
-
 ## Stakræn stærðfræði
 
 ## Reglulegar segðir
